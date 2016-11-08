@@ -35,17 +35,21 @@ class GameViewController: UIViewController {
       
       //EARTH
       sceneSetup()
-      
-      earthNode.geometry = SCNSphere(radius: 10)
-      earthNode.position = SCNVector3Make(-2, 0, 0)
-      earthNode.geometry?.firstMaterial?.specular.contents = #imageLiteral(resourceName: "specularMap")
-      earthNode.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "colorMap")
-      earthNode.geometry?.firstMaterial?.transparent.contents = #imageLiteral(resourceName: "cloudMap")
+      earthSetup()
 
       earthView.scene?.rootNode.addChildNode(earthNode)
       
         
     }
+  
+  func earthSetup(){
+    
+    earthNode.geometry = SCNSphere(radius: 10)
+    earthNode.position = SCNVector3Make(-2, 0, 0)
+    earthNode.geometry?.firstMaterial?.specular.contents = #imageLiteral(resourceName: "specularMap")
+    earthNode.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "colorMap")
+    earthNode.geometry?.firstMaterial?.transparent.contents = #imageLiteral(resourceName: "cloudMap")
+  }
   
   func sceneSetup() {
     let scene = SCNScene()
