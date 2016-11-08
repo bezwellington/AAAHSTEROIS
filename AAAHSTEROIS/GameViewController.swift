@@ -12,6 +12,8 @@ import GameplayKit
 import GameController
 
 class GameViewController: UIViewController {
+    
+    var gameScene = GameScene()
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,4 +33,15 @@ class GameViewController: UIViewController {
         // Release any cached data, images, etc that aren't in use.
     }
     
+    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        for item in presses {
+            if item.type == .select {
+                gameScene.count -= 1
+                print("Count = \(gameScene.count)")
+            }
+        }
+        if(gameScene.count == 2){
+            print("voce precisa recarregar sua arma")
+        }
+    }
 }
