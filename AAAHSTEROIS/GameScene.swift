@@ -11,8 +11,10 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    let satellite = SKSpriteNode(imageNamed: "sat2")
-    var asteroid = SKSpriteNode(imageNamed: "asteroid")
+    let satellite = SKSpriteNode(imageNamed: "cross")
+    var asteroid = SKSpriteNode(imageNamed: "asteroid2")
+    let asteroidFire = SKEmitterNode(fileNamed: "fireParticle")
+    var count = 10
     
     // Persist the initial touch position of the remote
     var touchPositionX: CGFloat = 0.0
@@ -22,12 +24,28 @@ class GameScene: SKScene {
         //satellite.position = CGPoint(x:frame.size.width / 2, y: frame.size.height / 2)
         satellite.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
         addChild(satellite)
-        
-        asteroid.position = CGPoint(x:frame.size.width / 2, y: frame.size.height / 1.3)
+      
+        asteroid.scale(to: CGSize(width: 100, height: 100))
+        asteroid.position = CGPoint(x:frame.size.width / 2, y: frame.maxY * 1.5)
         addChild(asteroid)
+      
+        asteroidFire?.targetNode = asteroid
+        asteroidFire?.alpha = 0.5
+        asteroid.addChild(asteroidFire!)
+      
+
         
-        backgroundColor = UIColor.brown
+        backgroundColor = UIColor.black
+      
+        moveAsteroid()
     }
+  
+
+  func moveAsteroid(){
+    
+    print("move asteroid")
+    asteroid.run(SKAction.moveTo(y: self.frame.minY, duration: 3))
+  }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
@@ -65,7 +83,7 @@ class GameScene: SKScene {
                 
                 // Move the sprite
                 satellite.position = CGPoint(x: x, y: y)
-                
+              
             }
             // Persist latest touch position
             touchPositionY = location.y
