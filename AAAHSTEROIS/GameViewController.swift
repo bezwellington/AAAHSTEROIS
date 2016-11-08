@@ -13,14 +13,13 @@ import GameplayKit
 import GameController
 
 class GameViewController: UIViewController {
-    /*
-        var originalPanViewCenter: CGPoint?
-        var panViewConstraintCenterX: NSLayoutConstraint!
-        var panViewConstraintCenterY: NSLayoutConstraint!
- */
+    
+    var gameScene = GameScene()
  
+
   @IBOutlet weak var earthView: SCNView!
   let earthNode = SCNNode()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,13 +45,6 @@ class GameViewController: UIViewController {
       earthView.scene?.rootNode.addChildNode(earthNode)
       
         
-        /*
-        originalPanViewCenter = CGPoint(x: panViewConstraintCenterX.constant, y: panViewConstraintCenterY.constant)
-        
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "userPanned:")
-        skView.addGestureRecognizer(panGestureRecognizer)
- */
-
     }
   
   func sceneSetup() {
@@ -86,22 +78,15 @@ class GameViewController: UIViewController {
         // Release any cached data, images, etc that aren't in use.
     }
     
-    // MARK: UIPanGestureRecognizer
-/*
-    func userPanned(panGestureRecognizer : UIPanGestureRecognizer) {
-        let translation = panGestureRecognizer.translation(in: self.view)
-        print(translation)
-        guard let originalCenter = originalPanViewCenter else { return }
-        panViewConstraintCenterX.constant = originalCenter.x
-        panViewConstraintCenterY.constant = originalCenter.y
-        
-        if (panGestureRecognizer.state == .changed) {
-            panViewConstraintCenterX.constant += translation.x
-            panViewConstraintCenterY.constant += translation.y
+    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        for item in presses {
+            if item.type == .select {
+                gameScene.count -= 1
+                print("Count = \(gameScene.count)")
+            }
+        }
+        if(gameScene.count == 2){
+            print("voce precisa recarregar sua arma")
         }
     }
- */
-    
-    
-    
 }
