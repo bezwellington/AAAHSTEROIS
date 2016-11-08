@@ -44,7 +44,7 @@ class GameScene: SKScene {
   func moveAsteroid(){
     
     print("move asteroid")
-    asteroid.run(SKAction.moveTo(y: self.frame.minY, duration: 3))
+    asteroid.run(SKAction.moveTo(y: -300, duration: 3))
   }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

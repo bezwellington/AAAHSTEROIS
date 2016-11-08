@@ -21,6 +21,7 @@
 		40CC61A31DD118BD00178B7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40CC61A21DD118BD00178B7A /* Assets.xcassets */; };
 		EFF0362B1DD2565700EF97DD /* fireParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = EFF036291DD2565700EF97DD /* fireParticle.sks */; };
 		EFF0362C1DD2565700EF97DD /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF0362A1DD2565700EF97DD /* spark.png */; };
+		EFF0362E1DD27C9600EF97DD /* EarthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF0362D1DD27C9600EF97DD /* EarthView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		40CC61A41DD118BD00178B7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFF036291DD2565700EF97DD /* fireParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fireParticle.sks; sourceTree = "<group>"; };
 		EFF0362A1DD2565700EF97DD /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		EFF0362D1DD27C9600EF97DD /* EarthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarthView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			children = (
 				40CC619F1DD118BD00178B7A /* Main.storyboard */,
 				2E6E3DCD1DD22F7C00C4298F /* VerificationCodeView.swift */,
+				EFF0362D1DD27C9600EF97DD /* EarthView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				402E0A891DD1703B003C7969 /* DeviceListScene.swift in Sources */,
+				EFF0362E1DD27C9600EF97DD /* EarthView.swift in Sources */,
 				402E0A8B1DD1705D003C7969 /* FinalResultScene.swift in Sources */,
 				40CC619C1DD118BD00178B7A /* GameScene.swift in Sources */,
 				2E6E3DCE1DD22F7C00C4298F /* VerificationCodeView.swift in Sources */,
