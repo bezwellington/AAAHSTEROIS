@@ -13,14 +13,9 @@ import GameplayKit
 import GameController
 
 class GameViewController: UIViewController {
-
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
-    var codeView: VerificationCodeView!
     
     var gameScene = GameScene()
  
-
   @IBOutlet weak var earthView: SCNView!
     
   let earthNode = SCNNode()
@@ -28,14 +23,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //let codeFrame = CGRect(x: 0, y: 0 , width: 400, height: 200)
-        
-        print("\n \n antes da codeView \n \n")
-        
-        //codeView = VerificationCodeView(frame: self.view.bounds, verificationCode: "1234")
-        //self.view.addSubview(codeView)
-        
-        //print("\n \n passou pelo codeView \n \n")
+
         
         
         //appDelegate.mpcManager.delegate = self
@@ -119,5 +107,5 @@ class GameViewController: UIViewController {
     }
 }
 
-//extension GameViewController: MPCManagerDelegate {
+
 

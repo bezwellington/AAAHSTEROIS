@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E031CC21DD27D3D002BD6E2 /* VerificationCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E031CC11DD27D3D002BD6E2 /* VerificationCodeController.swift */; };
 		2E6E3DCC1DD2232F00C4298F /* MPCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6E3DCB1DD2232F00C4298F /* MPCManager.swift */; };
 		2E6E3DCE1DD22F7C00C4298F /* VerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6E3DCD1DD22F7C00C4298F /* VerificationCodeView.swift */; };
 		402E0A851DD17009003C7969 /* InitialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E0A841DD17009003C7969 /* InitialScene.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E031CC11DD27D3D002BD6E2 /* VerificationCodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationCodeController.swift; sourceTree = "<group>"; };
 		2E6E3DCB1DD2232F00C4298F /* MPCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
 		2E6E3DCD1DD22F7C00C4298F /* VerificationCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationCodeView.swift; sourceTree = "<group>"; };
 		402E0A841DD17009003C7969 /* InitialScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialScene.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				40CC619D1DD118BD00178B7A /* GameViewController.swift */,
+				2E031CC11DD27D3D002BD6E2 /* VerificationCodeController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				2E6E3DCE1DD22F7C00C4298F /* VerificationCodeView.swift in Sources */,
 				402E0A851DD17009003C7969 /* InitialScene.swift in Sources */,
 				40CC619E1DD118BD00178B7A /* GameViewController.swift in Sources */,
+				2E031CC21DD27D3D002BD6E2 /* VerificationCodeController.swift in Sources */,
 				402E0A871DD17027003C7969 /* OptionsScene.swift in Sources */,
 				2E6E3DCC1DD2232F00C4298F /* MPCManager.swift in Sources */,
 				40CC61941DD118BD00178B7A /* AppDelegate.swift in Sources */,
