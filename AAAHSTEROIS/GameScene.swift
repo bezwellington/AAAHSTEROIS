@@ -12,7 +12,7 @@ import GameplayKit
 class GameScene: SKScene {
     
     let satellite = SKSpriteNode(imageNamed: "cross")
-    var asteroid = SKSpriteNode(imageNamed: "asteroid")
+    var asteroid = SKSpriteNode(imageNamed: "asteroid2")
     let asteroidFire = SKEmitterNode(fileNamed: "fireParticle")
     
     // Persist the initial touch position of the remote
