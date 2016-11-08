@@ -12,15 +12,40 @@ import GameplayKit
 import GameController
 
 class GameViewController: UIViewController {
-    /*
-        var originalPanViewCenter: CGPoint?
-        var panViewConstraintCenterX: NSLayoutConstraint!
-        var panViewConstraintCenterY: NSLayoutConstraint!
- */
- 
 
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var codeView: VerificationCodeView!
+    var label = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let codeFrame = CGRect(x: 0, y: 0 , width: 400, height: 200)
+        
+        label = UILabel(frame: codeFrame)
+        label.text = "TESTE"
+        label.baselineAdjustment = .alignCenters
+        //self.view.addSubview(label)
+        
+        print("\n \n antes da codeView \n \n")
+        
+        
+        codeView = VerificationCodeView(frame: self.view.bounds, verificationCode: "1234")
+        self.view.addSubview(codeView)
+        
+        print("\n \n passou pelo codeView \n \n")
+        //appDelegate.mpcManager.delegate = self
+        
+        //appDelegate.mpcManager.enableServices(enable: true)
+        
+        //loadGameScene()
+
+        
+        
+
+    }
+
+    func loadGameScene(){
         let skView = view as! SKView
         //let scene = SKScene(fileNamed: "GameScene")
         let scene = GameScene(size: view.bounds.size)
@@ -29,37 +54,14 @@ class GameViewController: UIViewController {
         skView.showsFPS = true
         skView.showsNodeCount = true
         skView.presentScene(scene)
-        
-        /*
-        originalPanViewCenter = CGPoint(x: panViewConstraintCenterX.constant, y: panViewConstraintCenterY.constant)
-        
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "userPanned:")
-        skView.addGestureRecognizer(panGestureRecognizer)
- */
-
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
     
-    // MARK: UIPanGestureRecognizer
-/*
-    func userPanned(panGestureRecognizer : UIPanGestureRecognizer) {
-        let translation = panGestureRecognizer.translation(in: self.view)
-        print(translation)
-        guard let originalCenter = originalPanViewCenter else { return }
-        panViewConstraintCenterX.constant = originalCenter.x
-        panViewConstraintCenterY.constant = originalCenter.y
-        
-        if (panGestureRecognizer.state == .changed) {
-            panViewConstraintCenterX.constant += translation.x
-            panViewConstraintCenterY.constant += translation.y
-        }
-    }
- */
-    
-    
-    
 }
+
+//extension GameViewController: MPCManagerDelegate {
+

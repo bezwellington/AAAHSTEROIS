@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E6E3DCC1DD2232F00C4298F /* MPCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6E3DCB1DD2232F00C4298F /* MPCManager.swift */; };
+		2E6E3DCE1DD22F7C00C4298F /* VerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6E3DCD1DD22F7C00C4298F /* VerificationCodeView.swift */; };
 		402E0A851DD17009003C7969 /* InitialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E0A841DD17009003C7969 /* InitialScene.swift */; };
 		402E0A871DD17027003C7969 /* OptionsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E0A861DD17027003C7969 /* OptionsScene.swift */; };
 		402E0A891DD1703B003C7969 /* DeviceListScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E0A881DD1703B003C7969 /* DeviceListScene.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E6E3DCB1DD2232F00C4298F /* MPCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
+		2E6E3DCD1DD22F7C00C4298F /* VerificationCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationCodeView.swift; sourceTree = "<group>"; };
 		402E0A841DD17009003C7969 /* InitialScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialScene.swift; sourceTree = "<group>"; };
 		402E0A861DD17027003C7969 /* OptionsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsScene.swift; sourceTree = "<group>"; };
 		402E0A881DD1703B003C7969 /* DeviceListScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceListScene.swift; sourceTree = "<group>"; };
@@ -57,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				40CC619F1DD118BD00178B7A /* Main.storyboard */,
+				2E6E3DCD1DD22F7C00C4298F /* VerificationCodeView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -64,6 +69,7 @@
 		402E0A8E1DD17156003C7969 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2E6E3DCB1DD2232F00C4298F /* MPCManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -203,9 +209,11 @@
 				402E0A891DD1703B003C7969 /* DeviceListScene.swift in Sources */,
 				402E0A8B1DD1705D003C7969 /* FinalResultScene.swift in Sources */,
 				40CC619C1DD118BD00178B7A /* GameScene.swift in Sources */,
+				2E6E3DCE1DD22F7C00C4298F /* VerificationCodeView.swift in Sources */,
 				402E0A851DD17009003C7969 /* InitialScene.swift in Sources */,
 				40CC619E1DD118BD00178B7A /* GameViewController.swift in Sources */,
 				402E0A871DD17027003C7969 /* OptionsScene.swift in Sources */,
+				2E6E3DCC1DD2232F00C4298F /* MPCManager.swift in Sources */,
 				40CC61941DD118BD00178B7A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
