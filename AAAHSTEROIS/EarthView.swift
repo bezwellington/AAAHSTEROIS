@@ -19,10 +19,14 @@ class EarthView: SCNView {
     earthSetup()
   }
   
+  
   func earthSetup(){
     
-    earthNode.geometry = SCNSphere(radius: 10)
-    earthNode.position = SCNVector3Make(-2, 0, 0)
+    let earthSphere = SCNSphere(radius: 140)
+    earthSphere.segmentCount = 80
+    
+    earthNode.geometry = earthSphere
+    earthNode.position = SCNVector3Make(0, -140, 0)
     earthNode.geometry?.firstMaterial?.specular.contents = #imageLiteral(resourceName: "specularMap")
     earthNode.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "colorMap")
     earthNode.geometry?.firstMaterial?.transparent.contents = #imageLiteral(resourceName: "cloudMap")
