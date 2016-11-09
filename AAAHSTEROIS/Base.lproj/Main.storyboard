@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="499-42-d0g">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="499-42-d0g">
     <dependencies>
         <deployment identifier="tvOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -38,7 +38,7 @@
                             <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LJQ-xu-blo" customClass="EarthView" customModule="AAAHSTEROIS" customModuleProvider="target"/>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="LJQ-xu-blo" firstAttribute="top" secondItem="TiC-Vw-u93" secondAttribute="bottom" constant="770" id="9y9-U5-q9n"/>
+                            <constraint firstItem="LJQ-xu-blo" firstAttribute="top" secondItem="TiC-Vw-u93" secondAttribute="bottom" id="9y9-U5-q9n"/>
                             <constraint firstItem="LJQ-xu-blo" firstAttribute="bottom" secondItem="3TX-uQ-fmp" secondAttribute="top" id="Ta8-sW-YP1"/>
                             <constraint firstAttribute="trailing" secondItem="LJQ-xu-blo" secondAttribute="trailing" id="XQ8-qS-Pem"/>
                             <constraint firstItem="LJQ-xu-blo" firstAttribute="leading" secondItem="weF-Pa-zaM" secondAttribute="leading" id="Xp2-DM-PIh"/>
