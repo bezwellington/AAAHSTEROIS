@@ -17,21 +17,38 @@ class EarthView: SCNView {
     
     sceneSetup()
     earthSetup()
+    rotate()
   }
+    
+    func rotate() {
+        earthNode.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 1, y: 1, z: 1, duration: 70)))
+    }
   
   
   func earthSetup(){
     
-    let earthSphere = SCNSphere(radius: 700)
-    earthSphere.segmentCount = 250
-    
-    earthNode.geometry = earthSphere
-    earthNode.position = SCNVector3Make(0, -290, -750)
+    //raio 700
+    let earthGeometry = SCNSphere(radius: 700)
+    earthGeometry.segmentCount = 250
+    //segment 250
+    earthNode.geometry = earthGeometry
+    earthNode.position = SCNVector3Make(0, -370, -750) //0, -290, -750
     earthNode.geometry?.firstMaterial?.specular.contents = #imageLiteral(resourceName: "specularMap")
     earthNode.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "colorMap")
-    earthNode.geometry?.firstMaterial?.transparent.contents = #imageLiteral(resourceName: "cloudMap")
     
     self.scene?.rootNode.addChildNode(earthNode)
+    
+    //CLOUDS
+    
+    let cloudGeometry = SCNSphere(radius:730) //730
+    cloudGeometry.segmentCount = 250 //250
+    
+    cloudGeometry.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "cloudMap")
+    cloudGeometry.firstMaterial?.transparent.contents = #imageLiteral(resourceName: "cloudTransparencyMap")
+    
+    let cloudNode = SCNNode(geometry: cloudGeometry)
+    earthNode.addChildNode(cloudNode)
+
   }
   
   func sceneSetup() {
