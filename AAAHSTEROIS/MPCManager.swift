@@ -33,7 +33,7 @@ class MPCManager: NSObject {
     var invitationHandler: ((Bool, MCSession?) -> Void)!
     
     lazy var session:MCSession = {
-        let session = MCSession(peer: self.peerID, securityIdentity: nil, encryptionPreference: MCEncryptionPreference.required)
+        let session = MCSession(peer: self.peerID, securityIdentity: nil, encryptionPreference: MCEncryptionPreference.none)
         return session
     }()
 
@@ -161,12 +161,16 @@ extension MPCManager: MCSessionDelegate {
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        print("\n\n DID START RECEIVING FROM IPHONE \n\n")
+        print("\n\n DID RECEIVE DATA FROM IPHONE \n\n")
+        
+        let messageReceived: Dictionary? = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : String]
+        
+        print("\n \n MESSAGE RECEIVED: \(messageReceived) \n\n")
     }
     
     func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
         
-        print("\n\n DID START RECEIVING FROM IPHONE \n\n")
+        print("\n\n DID START RECEIVING RESOURCE FROM IPHONE \n\n")
     }
     
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?) {
