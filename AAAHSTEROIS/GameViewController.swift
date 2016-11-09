@@ -14,18 +14,26 @@ import GameController
 
 class GameViewController: UIViewController {
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+     var codeView: VerificationCodeView!
     var gameScene = GameScene()
+    
 
   @IBOutlet weak var earthView: EarthView!
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    //appDelegate.mpcManager.delegate = self
+
+    codeView = VerificationCodeView(frame: self.view.bounds, verificationCode: "1234")
+    self.view.addSubview(codeView)
     
-    //appDelegate.mpcManager.enableServices(enable: true)
+    appDelegate.mpcManager.delegate = self
+    appDelegate.mpcManager.enableServices(enable: true)
     
-    loadGameScene()
+    
+    //loadGameScene()
   }
   
   func loadGameScene(){

@@ -46,7 +46,7 @@ class VerificationCodeController:UIViewController {
 
 }
 
-extension GameViewController: MPCManagerDelegate {
+/*extension GameViewController: MPCManagerDelegate {
 
     func foundPeer() {
         print("Found Peer!")
@@ -63,4 +63,4 @@ extension GameViewController: MPCManagerDelegate {
     func connectedWithPeer(peerID: MCPeerID) {
         
     }
-}
+}*/

@@ -10,7 +10,7 @@ import Foundation
 import MultipeerConnectivity
 
 protocol MPCManagerDelegate {
-    func foundPeer()
+    func foundPeer(peer: MCPeerID)
     
     func lostPeer()
     
@@ -52,12 +52,12 @@ class MPCManager: NSObject {
     
     func enableServices(enable: Bool) -> Void {
         if(enable){
-            advertiser.startAdvertisingPeer()
-            print("\n\n start advertising \n\n")
-            //browser.startBrowsingForPeers()
+            //advertiser.startAdvertisingPeer()
+            print("\n\n start browsing for peers \n\n")
+            browser.startBrowsingForPeers()
         } else {
-            advertiser.stopAdvertisingPeer()
-            //browser.stopBrowsingForPeers()
+            //advertiser.stopAdvertisingPeer()
+            browser.stopBrowsingForPeers()
         }
     }
     
@@ -83,7 +83,7 @@ class MPCManager: NSObject {
     
 }
 
-// acho que não será usada na AppleTV por enquanto
+// acho que a advertiser não será usada na AppleTV por enquanto
 extension MPCManager: MCNearbyServiceAdvertiserDelegate {
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
@@ -104,7 +104,6 @@ extension MPCManager: MCNearbyServiceAdvertiserDelegate {
         
         delegate?.invitationWasReceived(fromPeer: peerID.displayName, codeReceived: strContext)
         
-        
     }
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
@@ -119,12 +118,15 @@ extension MPCManager: MCNearbyServiceBrowserDelegate {
         
         foundPeers.append(peerID)
         
+        print("\n \n ACHOU UM PEER \(peerID.displayName) \n\n")
+        
         //TODO: Criar um código numerico aleatório de 4 algarismos
         let codeData = "1234".data(using: String.Encoding.utf8)
         
-        browser.invitePeer(peerID, to: session, withContext: codeData, timeout: 30)
+        browser.invitePeer(peerID, to: session, withContext: codeData, timeout: 60)
+        print("\n\n CONVIDOU O PEER \n\n")
         
-        delegate?.foundPeer()
+        delegate?.foundPeer(peer: peerID)
         
     }
     
@@ -149,19 +151,22 @@ extension MPCManager: MCSessionDelegate {
         
         switch state {
         case .connected:
-            print("Connected to session: \(session)")
+            print("\n \n Connected to session: \(session)\n \n")
             delegate?.connectedWithPeer(peerID: peerID)
         case .connecting:
-            print("Connecting to session: \(session)")
+            print("\n\nConnecting to session: \(session)\n\n")
         default:
-            print("Did not connect to session: \(session)")
+            print("\n\nDid not connect to session: \(session)\n\n")
         }
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
+        print("\n\n DID START RECEIVING FROM IPHONE \n\n")
     }
     
     func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
+        
+        print("\n\n DID START RECEIVING FROM IPHONE \n\n")
     }
     
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?) {
