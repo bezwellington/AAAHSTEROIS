@@ -25,9 +25,9 @@ class GameScene: SKScene {
         aim.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
         addChild(aim)
         
-        backgroundColor = UIColor.black
+    
         
-        possibleAsteroidColors = [SKColor.red, SKColor.green, SKColor.yellow]
+        possibleAsteroidColors = [SKColor.red, SKColor.green]
         
         createAsteroidsTimer()
     }
@@ -63,11 +63,22 @@ class GameScene: SKScene {
         asteroidFire?.particleColor = possibleAsteroidColors[Int(arc4random_uniform(UInt32(possibleAsteroidColors.count)))]
         asteroid.addChild(asteroidFire!)
         
-        asteroid.run(SKAction.moveTo(y: -300, duration: 4)){
+        let move = SKAction.moveTo(y: -300, duration: 4)
+        let scale = SKAction.scale(to: 0.2, duration: 4)
+        let asteroidAnimationGroup = SKAction.group([move,scale])
+        
+
+        
+        asteroid.run(asteroidAnimationGroup){
             asteroid.removeFromParent()
             print("removed asteroid")
         }
 
+    }
+    
+    func checksIfAsteroidWasHit(){
+        
+        //TODO: verificar se o tiro acertou o asteroid
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

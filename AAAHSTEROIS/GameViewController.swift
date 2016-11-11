@@ -38,16 +38,22 @@ class GameViewController: UIViewController {
     }
     
     func loadGameScene(){
-        let skView = view as! SKView
-        
-        gameScene.size = view.bounds.size
-        gameScene.scaleMode = .aspectFill
-        skView.ignoresSiblingOrder = true
-        skView.showsFPS = true
-        skView.showsNodeCount = true
-        skView.presentScene(gameScene)
+//        let skView = view as! SKView
         
         earthView.load3DEarth()
+
+        
+//        gameScene.size = view.bounds.size
+//        gameScene.scaleMode = .aspectFill
+//        skView.ignoresSiblingOrder = true
+//        skView.showsFPS = true
+//        skView.showsNodeCount = true
+//        skView.presentScene(gameScene)
+        let overlay = GameScene(size: self.view.bounds.size)
+        
+        
+        earthView.overlaySKScene = overlay
+        
         
     }
     
