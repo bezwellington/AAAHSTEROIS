@@ -11,9 +11,9 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    let satellite = SKSpriteNode(imageNamed: "cross")
-    var asteroid = SKSpriteNode(imageNamed: "asteroid2")
-    let asteroidFire = SKEmitterNode(fileNamed: "fireParticle")
+    let aim = SKSpriteNode(imageNamed: "cross")
+    var possibleAsteroidColors:[SKColor] = []
+    
     var count = 10
     
     // Persist the initial touch position of the remote
@@ -22,30 +22,53 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         //satellite.position = CGPoint(x:frame.size.width / 2, y: frame.size.height / 2)
-        satellite.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
-        addChild(satellite)
-      
-        asteroid.scale(to: CGSize(width: 100, height: 100))
-        asteroid.position = CGPoint(x:frame.size.width / 2, y: frame.maxY * 1.5)
-        addChild(asteroid)
-      
-        asteroidFire?.targetNode = asteroid
-        asteroidFire?.alpha = 0.5
-        asteroid.addChild(asteroidFire!)
-      
-
+        aim.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
+        addChild(aim)
         
         backgroundColor = UIColor.black
-      
-        moveAsteroid()
+        
+        possibleAsteroidColors = [SKColor.red, SKColor.green, SKColor.yellow]
+        
+        createAsteroidsTimer()
     }
-  
-
-  func moveAsteroid(){
     
-    print("move asteroid")
-    asteroid.run(SKAction.moveTo(y: -300, duration: 3))
-  }
+    
+    func createAsteroidsTimer() {
+        
+        let asteroidsTimer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(addRandomAsteroid), userInfo: nil, repeats: true)
+        
+        asteroidsTimer.fire()
+        
+        print("created asteroid timer")
+    }
+    
+    func addRandomAsteroid() {
+        
+        print("add asteroid")
+        
+        let asteroid = SKSpriteNode(imageNamed: "asteroid2")
+        let asteroidFire = SKEmitterNode(fileNamed: "fireParticle")
+        
+        asteroid.scale(to: CGSize(width: 100, height: 100))
+        
+        let randomX = CGFloat(arc4random_uniform(UInt32(frame.size.width-asteroid.xScale*1.5)))
+        asteroid.position = CGPoint(x:randomX+asteroid.xScale, y: frame.maxY * 1.5)
+        addChild(asteroid)
+        
+        asteroidFire?.targetNode = asteroid
+        asteroidFire?.alpha = 0.5
+        asteroidFire?.particleColorSequence = nil
+        asteroidFire?.particleColorBlendFactor = 1.0
+        //aqui dá pra setar a cor que quiser
+        asteroidFire?.particleColor = possibleAsteroidColors[Int(arc4random_uniform(UInt32(possibleAsteroidColors.count)))]
+        asteroid.addChild(asteroidFire!)
+        
+        asteroid.run(SKAction.moveTo(y: -300, duration: 4)){
+            asteroid.removeFromParent()
+            print("removed asteroid")
+        }
+
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
@@ -53,7 +76,7 @@ class GameScene: SKScene {
             touchPositionY = touch.location(in: self).y
         }
     }
-
+    
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
@@ -66,8 +89,8 @@ class GameScene: SKScene {
                 let deltaY = touchPositionY - location.y
                 
                 // Calculate the new Sprite position
-                var x = satellite.position.x - deltaX
-                var y = satellite.position.y - deltaY
+                var x = aim.position.x - deltaX
+                var y = aim.position.y - deltaY
                 
                 // Check if the sprite will leave the screen
                 if x < 0 {
@@ -82,16 +105,16 @@ class GameScene: SKScene {
                 }
                 
                 // Move the sprite
-                satellite.position = CGPoint(x: x, y: y)
-              
+                aim.position = CGPoint(x: x, y: y)
+                
             }
             // Persist latest touch position
             touchPositionY = location.y
             touchPositionX = location.x
         }
-
-    }
         
+    }
+    
     
     
     override func update(_ currentTime: TimeInterval) {
