@@ -14,8 +14,9 @@ import GameController
 
 class GameViewController: UIViewController {
     
-    @IBOutlet weak var earthView: EarthView!
-    
+  
+  @IBOutlet weak var game3DView: Game3DView!
+  
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var codeView: VerificationCodeView!
     var gameScene = GameScene()
@@ -38,21 +39,12 @@ class GameViewController: UIViewController {
     }
     
     func loadGameScene(){
-//        let skView = view as! SKView
-        
-        earthView.load3DEarth()
+      
+        game3DView.loadGame()
+        game3DView.showsStatistics = true
 
-        
-//        gameScene.size = view.bounds.size
-//        gameScene.scaleMode = .aspectFill
-//        skView.ignoresSiblingOrder = true
-//        skView.showsFPS = true
-//        skView.showsNodeCount = true
-//        skView.presentScene(gameScene)
         let overlay = GameScene(size: self.view.bounds.size)
-        
-        
-        earthView.overlaySKScene = overlay
+        game3DView.overlaySKScene = overlay
         
         
     }

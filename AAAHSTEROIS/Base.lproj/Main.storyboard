@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="499-42-d0g">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="499-42-d0g">
     <dependencies>
         <deployment identifier="tvOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -35,7 +35,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LJQ-xu-blo" customClass="EarthView" customModule="AAAHSTEROIS" customModuleProvider="target"/>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LJQ-xu-blo" customClass="Game3DView" customModule="AAAHSTEROIS" customModuleProvider="target"/>
                         </subviews>
                         <constraints>
                             <constraint firstItem="LJQ-xu-blo" firstAttribute="top" secondItem="TiC-Vw-u93" secondAttribute="bottom" id="9y9-U5-q9n"/>
@@ -45,7 +45,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="earthView" destination="LJQ-xu-blo" id="mDP-Pa-fuD"/>
+                        <outlet property="game3DView" destination="LJQ-xu-blo" id="0Qs-MU-GCA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFW-Nd-Df7" userLabel="First Responder" sceneMemberID="firstResponder"/>
