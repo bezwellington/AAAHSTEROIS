@@ -12,6 +12,7 @@ import GameplayKit
 class GameScene: SKScene {
     
     let aim = SKSpriteNode(imageNamed: "cross")
+    var button: SKSpriteNode!
     
     var count = 10
     
@@ -20,6 +21,14 @@ class GameScene: SKScene {
     var touchPositionY: CGFloat = 0.0
     
     override func didMove(to view: SKView) {
+
+        
+        button = SKSpriteNode(color: SKColor.red, size: CGSize(width: 100, height: 44))
+        // Put it in the center of the scene
+        button?.position = CGPoint(x:self.frame.midX, y:self.frame.midY-250)
+        button.name = "caixa"
+        self.addChild(button!)
+        
         aim.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
         addChild(aim)
   
@@ -30,9 +39,18 @@ class GameScene: SKScene {
   
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            touchPositionX = touch.location(in: self).x
-            touchPositionY = touch.location(in: self).y
+            let touchLocation = touch.location(in: self)
+            print("entrei")
+            touchPositionX = touchLocation.x
+            touchPositionY = touchLocation.y
+            
+            if let body = physicsWorld.body(at: touchLocation) {
+                if body.node!.name == "caixa" {
+                    print("Asteroid foi pressionado")
+                }
+            }
         }
+        
     }
     
     
@@ -78,4 +96,5 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
     }
+    
 }

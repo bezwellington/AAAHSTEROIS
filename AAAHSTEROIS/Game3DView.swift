@@ -9,10 +9,13 @@
 import UIKit
 import SceneKit
 
-class Game3DView: SCNView {
+class Game3DView: SCNView, SCNPhysicsContactDelegate {
   
   let earthNode = SCNNode()
   let possibleAsteroidColor:[UIColor] = [UIColor.cyan, UIColor.yellow]
+    
+    let asteroidCategory: Int = 1
+    let earthCategory: Int = 2
   
   func loadGame(){
     
@@ -30,14 +33,15 @@ class Game3DView: SCNView {
     
     asteroidsTimer.fire()
     
-    print("created 3d asteroid timer")
+    //print("created 3d asteroid timer")
   }
   
   func animateAsteroid(asteroidNode:SCNNode, xPosition:Float){
     
     asteroidNode.runAction(SCNAction.move(to: SCNVector3Make(xPosition, -5, -20), duration: 4)){
       asteroidNode.removeFromParentNode()
-      print("removed 3d asteroid")
+      //print("removed 3d asteroid")
+        
     }
   }
   
@@ -46,6 +50,11 @@ class Game3DView: SCNView {
     let asteroidNode = SCNNode()
     let asteroidGeometry = SCNSphere(radius: 0.2)
     asteroidNode.geometry = asteroidGeometry
+    
+    asteroidNode.name = "asteroid"
+    // sphere physics
+    asteroidNode.physicsBody = SCNPhysicsBody.dynamic()
+    asteroidNode.physicsBody?.contactTestBitMask = asteroidCategory
     
     let randomX = Float(arc4random_uniform(10))
 
@@ -62,7 +71,7 @@ class Game3DView: SCNView {
     self.scene?.rootNode.addChildNode(asteroidNode)
     
     
-    print("created 3d asteroid")
+    //print("created 3d asteroid")
     animateAsteroid(asteroidNode: asteroidNode, xPosition: randomX-5)
     
   }
@@ -76,6 +85,11 @@ class Game3DView: SCNView {
     earthNode.position = SCNVector3Make(0, -14, -20)
     earthNode.geometry?.firstMaterial?.specular.contents = #imageLiteral(resourceName: "specularMap")
     earthNode.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "colorMap")
+    
+    earthNode.name = "earth"
+    // floor physics
+    earthNode.physicsBody = SCNPhysicsBody.static()
+    earthNode.physicsBody?.categoryBitMask = earthCategory
     
     self.scene?.rootNode.addChildNode(earthNode)
     
@@ -97,8 +111,8 @@ class Game3DView: SCNView {
   
   func sceneSetup() {
     let scene = SCNScene()
-    
     scene.background.contents = UIColor.black
+    scene.physicsWorld.contactDelegate = self
     
     let ambientLightNode = SCNNode()
     ambientLightNode.light = SCNLight()
@@ -121,5 +135,12 @@ class Game3DView: SCNView {
     
     self.scene = scene
   }
+    
+    func physicsWorld(_ world: SCNPhysicsWorld,didBegin contact: SCNPhysicsContact) {
+        print("entrou em contato")
+        if (contact.nodeA.name == "asteroid" && contact.nodeB.name == "earth") {
+            print("sphere hit floor")
+        }
+    }
 
 }
