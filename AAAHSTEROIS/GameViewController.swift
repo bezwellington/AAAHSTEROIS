@@ -44,6 +44,7 @@ class GameViewController: UIViewController {
         game3DView.showsStatistics = true
 
         let overlay = GameScene(size: self.view.bounds.size)
+        // Sobrepõe o conteúdo 2D do SpriteKit
         game3DView.overlaySKScene = overlay
         
         
@@ -55,12 +56,14 @@ class GameViewController: UIViewController {
     }
     
     override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        
         for item in presses {
             if item.type == .select {
                 gameScene.count -= 1
                 print("Count = \(gameScene.count)")
             }
         }
+
         if(gameScene.count == 2){
             print("voce precisa recarregar sua arma")
         }
