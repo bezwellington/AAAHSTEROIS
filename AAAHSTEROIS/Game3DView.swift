@@ -105,8 +105,10 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
   
   func sceneSetup() {
     let scene = SCNScene()
-    scene.background.contents = UIColor.black
+
+    scene.background.contents = #imageLiteral(resourceName: "spaceBackground")
     scene.physicsWorld.contactDelegate = self
+    
     
     let ambientLightNode = SCNNode()
     ambientLightNode.light = SCNLight()

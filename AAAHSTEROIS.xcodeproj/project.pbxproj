@@ -24,6 +24,9 @@
 		40CC61A11DD118BD00178B7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40CC619F1DD118BD00178B7A /* Main.storyboard */; };
 		40CC61A31DD118BD00178B7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40CC61A21DD118BD00178B7A /* Assets.xcassets */; };
 		EF8FA1951DD7AE7100CB350F /* fire.scnp in Resources */ = {isa = PBXBuildFile; fileRef = EF8FA1941DD7AE7100CB350F /* fire.scnp */; };
+		EFB374E01DD8FF2200B9A6D0 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB374DF1DD8FF2200B9A6D0 /* InitialViewController.swift */; };
+		EFB374E21DD8FFF600B9A6D0 /* HussarBdSuprObl.otf in Resources */ = {isa = PBXBuildFile; fileRef = EFB374E11DD8FFF600B9A6D0 /* HussarBdSuprObl.otf */; };
+		EFB374E41DD9052600B9A6D0 /* OCRAStd.otf in Resources */ = {isa = PBXBuildFile; fileRef = EFB374E31DD9052600B9A6D0 /* OCRAStd.otf */; };
 		EFF0362C1DD2565700EF97DD /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF0362A1DD2565700EF97DD /* spark.png */; };
 		EFF0362E1DD27C9600EF97DD /* Game3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF0362D1DD27C9600EF97DD /* Game3DView.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +51,9 @@
 		40CC61A21DD118BD00178B7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40CC61A41DD118BD00178B7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF8FA1941DD7AE7100CB350F /* fire.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = fire.scnp; sourceTree = "<group>"; };
+		EFB374DF1DD8FF2200B9A6D0 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		EFB374E11DD8FFF600B9A6D0 /* HussarBdSuprObl.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HussarBdSuprObl.otf; sourceTree = "<group>"; };
+		EFB374E31DD9052600B9A6D0 /* OCRAStd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = OCRAStd.otf; sourceTree = "<group>"; };
 		EFF0362A1DD2565700EF97DD /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		EFF0362D1DD27C9600EF97DD /* Game3DView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game3DView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				40CC619D1DD118BD00178B7A /* GameViewController.swift */,
+				EFB374DF1DD8FF2200B9A6D0 /* InitialViewController.swift */,
 				2E031CC11DD27D3D002BD6E2 /* VerificationCodeController.swift */,
 				2E031CC31DD283EF002BD6E2 /* GameViewControllerExtension.swift */,
 			);
@@ -144,6 +151,8 @@
 			children = (
 				EF8FA1941DD7AE7100CB350F /* fire.scnp */,
 				EFF0362A1DD2565700EF97DD /* spark.png */,
+				EFB374E11DD8FFF600B9A6D0 /* HussarBdSuprObl.otf */,
+				EFB374E31DD9052600B9A6D0 /* OCRAStd.otf */,
 				402E0A911DD17256003C7969 /* Scene */,
 				402E0A901DD17250003C7969 /* Data */,
 				402E0A8F1DD1716A003C7969 /* Others */,
@@ -186,7 +195,7 @@
 				TargetAttributes = {
 					40CC618F1DD118BD00178B7A = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = CBJLEDS7Z4;
+						DevelopmentTeam = 4BPZR4X6FJ;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -214,11 +223,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFB374E41DD9052600B9A6D0 /* OCRAStd.otf in Resources */,
 				EFF0362C1DD2565700EF97DD /* spark.png in Resources */,
 				EF8FA1951DD7AE7100CB350F /* fire.scnp in Resources */,
 				40CC619A1DD118BD00178B7A /* Game.xcassets in Resources */,
 				40CC61A11DD118BD00178B7A /* Main.storyboard in Resources */,
 				40CC61A31DD118BD00178B7A /* Assets.xcassets in Resources */,
+				EFB374E21DD8FFF600B9A6D0 /* HussarBdSuprObl.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFB374E01DD8FF2200B9A6D0 /* InitialViewController.swift in Sources */,
 				402E0A891DD1703B003C7969 /* DeviceListScene.swift in Sources */,
 				EFF0362E1DD27C9600EF97DD /* Game3DView.swift in Sources */,
 				2E031CC41DD283EF002BD6E2 /* GameViewControllerExtension.swift in Sources */,
@@ -356,7 +368,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = CBJLEDS7Z4;
+				DEVELOPMENT_TEAM = 4BPZR4X6FJ;
 				INFOPLIST_FILE = AAAHSTEROIS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "WBS-Corporation.AAAHSTEROIS";
@@ -370,7 +382,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = CBJLEDS7Z4;
+				DEVELOPMENT_TEAM = 4BPZR4X6FJ;
 				INFOPLIST_FILE = AAAHSTEROIS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "WBS-Corporation.AAAHSTEROIS";
