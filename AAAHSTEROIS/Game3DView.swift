@@ -21,9 +21,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
     
     sceneSetup()
     earthSetup()
-  
     createAsteroidsTimer()
-    
   }
   
   
@@ -52,7 +50,6 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
     asteroidNode.geometry = asteroidGeometry
     
     asteroidNode.name = "asteroid"
-    // sphere physics
     asteroidNode.physicsBody = SCNPhysicsBody.dynamic()
     asteroidNode.physicsBody?.contactTestBitMask = asteroidCategory
     
@@ -60,7 +57,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
 
     asteroidNode.position = SCNVector3Make(randomX-5, 4,-20)
     asteroidNode.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "asteroidMaterial1")
-    
+
     let asteroidFire = SCNParticleSystem(named: "fire.scnp", inDirectory: nil)!
     
     let randomColor = Int(arc4random_uniform(UInt32(possibleAsteroidColor.count)))
@@ -85,12 +82,9 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
     earthNode.position = SCNVector3Make(0, -14, -20)
     earthNode.geometry?.firstMaterial?.specular.contents = #imageLiteral(resourceName: "specularMap")
     earthNode.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "colorMap")
-    
     earthNode.name = "earth"
-    // floor physics
     earthNode.physicsBody = SCNPhysicsBody.static()
     earthNode.physicsBody?.categoryBitMask = earthCategory
-    
     self.scene?.rootNode.addChildNode(earthNode)
     
     earthNode.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 1, y: 1, z: 1, duration: 70)))
@@ -139,7 +133,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
     func physicsWorld(_ world: SCNPhysicsWorld,didBegin contact: SCNPhysicsContact) {
         print("entrou em contato")
         if (contact.nodeA.name == "asteroid" && contact.nodeB.name == "earth") {
-            print("sphere hit floor")
+            print("colisão entre o asteroid e a Terra")
         }
     }
 
