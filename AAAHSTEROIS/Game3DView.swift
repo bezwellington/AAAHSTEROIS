@@ -14,8 +14,8 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
   let earthNode = SCNNode()
   let possibleAsteroidColor:[UIColor] = [UIColor.cyan, UIColor.yellow]
     
-    let asteroidCategory: Int = 1
-    let earthCategory: Int = 2
+    let asteroidCategory: Int = 0xFFFFFFFF
+    let earthCategory: Int = 0xFFFFFFFF
   
   func loadGame(){
     
@@ -133,9 +133,8 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
   }
     
     func physicsWorld(_ world: SCNPhysicsWorld,didBegin contact: SCNPhysicsContact) {
-        print("entrou em contato")
-        if (contact.nodeA.name == "asteroid" && contact.nodeB.name == "earth") {
-            print("colisão entre o asteroid e a Terra")
+        if (contact.nodeA.name == "earth" || contact.nodeA.name == "asteroid") && (contact.nodeB.name == "earth" || contact.nodeB.name == "asteroid") {
+            print("colisao acontecendo")
         }
     }
 

@@ -58,12 +58,13 @@ class GameViewController: UIViewController {
     override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         
         for item in presses {
+            //Se o TrackPad for pressionado
             if item.type == .select {
                 gameScene.count -= 1
                 print("Count = \(gameScene.count)")
             }
         }
-
+        // Se o número de munição for 2
         if(gameScene.count == 2){
             print("voce precisa recarregar sua arma")
         }
