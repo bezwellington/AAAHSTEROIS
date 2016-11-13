@@ -9,27 +9,22 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    let aim = SKSpriteNode(imageNamed: "cross")
-    var button: SKSpriteNode!
-    
+    var aimClass = AimClass()
     var count = 10
-    
     // Persist the initial touch position of the remote
     var touchPositionX: CGFloat = 0.0
     var touchPositionY: CGFloat = 0.0
     
     override func didMove(to view: SKView) {
-    
-        aim.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
-        addChild(aim)
+        addAim()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let touchLocation = touch.location(in: self)
-
+            
             touchPositionX = touchLocation.x
             touchPositionY = touchLocation.y
             
@@ -48,8 +43,8 @@ class GameScene: SKScene {
                 let deltaY = touchPositionY - location.y
                 
                 // Calculate the new Sprite position
-                var x = aim.position.x - deltaX
-                var y = aim.position.y - deltaY
+                var x = aimClass.aim.position.x - deltaX
+                var y = aimClass.aim.position.y - deltaY
                 
                 // Check if the sprite will leave the screen
                 if x < 0 {
@@ -64,7 +59,7 @@ class GameScene: SKScene {
                 }
                 
                 // Move the sprite
-                aim.position = CGPoint(x: x, y: y)
+                aimClass.aim.position = CGPoint(x: x, y: y)
                 
             }
             // Persist latest touch position
@@ -74,10 +69,12 @@ class GameScene: SKScene {
         
     }
     
-    
-    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
     }
     
+    func addAim() {
+        aimClass.aim.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
+        addChild(aimClass.aim)
+    }
 }

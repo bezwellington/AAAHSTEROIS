@@ -11,11 +11,15 @@ import SceneKit
 
 class Game3DView: SCNView, SCNPhysicsContactDelegate {
   
-  let earthNode = SCNNode()
-  let possibleAsteroidColor:[UIColor] = [UIColor.cyan, UIColor.yellow]
+    let earthNode = SCNNode()
+    let possibleAsteroidColor:[UIColor] = [UIColor.cyan, UIColor.yellow]
+    let asteroidCategory: Int = 1
+    let earthCategory: Int = 1
     
-    let asteroidCategory: Int = 0xFFFFFFFF
-    let earthCategory: Int = 0xFFFFFFFF
+    // Estou ajeitando as classes 
+    var earthClass = EarthClass()
+    var asteroidClass = AsteroidClass()
+
   
   func loadGame(){
     
@@ -28,9 +32,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
   func createAsteroidsTimer() {
     
     let asteroidsTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(addAsteroid), userInfo: nil, repeats: true)
-    
     asteroidsTimer.fire()
-    
     //print("created 3d asteroid timer")
   }
   
@@ -39,7 +41,6 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
     asteroidNode.runAction(SCNAction.move(to: SCNVector3Make(xPosition, -5, -20), duration: 4)){
       asteroidNode.removeFromParentNode()
       //print("removed 3d asteroid")
-        
     }
   }
   
@@ -50,7 +51,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
     asteroidNode.geometry = asteroidGeometry
     
     asteroidNode.name = "asteroid"
-    asteroidNode.physicsBody = SCNPhysicsBody.dynamic()
+    asteroidNode.physicsBody = SCNPhysicsBody.kinematic()
     asteroidNode.physicsBody?.contactTestBitMask = asteroidCategory
     
     let randomX = Float(arc4random_uniform(10))
@@ -83,7 +84,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
     earthNode.geometry?.firstMaterial?.specular.contents = #imageLiteral(resourceName: "specularMap")
     earthNode.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "colorMap")
     earthNode.name = "earth"
-    earthNode.physicsBody = SCNPhysicsBody.static()
+    earthNode.physicsBody = SCNPhysicsBody.kinematic()
     earthNode.physicsBody?.categoryBitMask = earthCategory
     self.scene?.rootNode.addChildNode(earthNode)
     

@@ -15,8 +15,9 @@
 		402E0A871DD17027003C7969 /* OptionsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E0A861DD17027003C7969 /* OptionsScene.swift */; };
 		402E0A891DD1703B003C7969 /* DeviceListScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E0A881DD1703B003C7969 /* DeviceListScene.swift */; };
 		402E0A8B1DD1705D003C7969 /* FinalResultScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E0A8A1DD1705D003C7969 /* FinalResultScene.swift */; };
-		40C8F71B1DD8D4D9009B4E24 /* Asteroid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8F71A1DD8D4D9009B4E24 /* Asteroid.swift */; };
-		40C8F71D1DD8D4E3009B4E24 /* Aim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8F71C1DD8D4E3009B4E24 /* Aim.swift */; };
+		405482251DD9216C003F56DC /* EarthClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405482241DD9216C003F56DC /* EarthClass.swift */; };
+		40C8F71B1DD8D4D9009B4E24 /* AsteroidClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8F71A1DD8D4D9009B4E24 /* AsteroidClass.swift */; };
+		40C8F71D1DD8D4E3009B4E24 /* AimClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8F71C1DD8D4E3009B4E24 /* AimClass.swift */; };
 		40CC61941DD118BD00178B7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC61931DD118BD00178B7A /* AppDelegate.swift */; };
 		40CC619A1DD118BD00178B7A /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40CC61991DD118BD00178B7A /* Game.xcassets */; };
 		40CC619C1DD118BD00178B7A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC619B1DD118BD00178B7A /* GameScene.swift */; };
@@ -40,8 +41,9 @@
 		402E0A861DD17027003C7969 /* OptionsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsScene.swift; sourceTree = "<group>"; };
 		402E0A881DD1703B003C7969 /* DeviceListScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceListScene.swift; sourceTree = "<group>"; };
 		402E0A8A1DD1705D003C7969 /* FinalResultScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalResultScene.swift; sourceTree = "<group>"; };
-		40C8F71A1DD8D4D9009B4E24 /* Asteroid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asteroid.swift; sourceTree = "<group>"; };
-		40C8F71C1DD8D4E3009B4E24 /* Aim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aim.swift; sourceTree = "<group>"; };
+		405482241DD9216C003F56DC /* EarthClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarthClass.swift; sourceTree = "<group>"; };
+		40C8F71A1DD8D4D9009B4E24 /* AsteroidClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsteroidClass.swift; sourceTree = "<group>"; };
+		40C8F71C1DD8D4E3009B4E24 /* AimClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AimClass.swift; sourceTree = "<group>"; };
 		40CC61901DD118BD00178B7A /* AAAHSTEROIS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AAAHSTEROIS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40CC61931DD118BD00178B7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40CC61991DD118BD00178B7A /* Game.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Game.xcassets; sourceTree = "<group>"; };
@@ -94,8 +96,9 @@
 			isa = PBXGroup;
 			children = (
 				2E6E3DCB1DD2232F00C4298F /* MPCManager.swift */,
-				40C8F71A1DD8D4D9009B4E24 /* Asteroid.swift */,
-				40C8F71C1DD8D4E3009B4E24 /* Aim.swift */,
+				40C8F71A1DD8D4D9009B4E24 /* AsteroidClass.swift */,
+				40C8F71C1DD8D4E3009B4E24 /* AimClass.swift */,
+				405482241DD9216C003F56DC /* EarthClass.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -245,14 +248,15 @@
 				EFF0362E1DD27C9600EF97DD /* Game3DView.swift in Sources */,
 				2E031CC41DD283EF002BD6E2 /* GameViewControllerExtension.swift in Sources */,
 				402E0A8B1DD1705D003C7969 /* FinalResultScene.swift in Sources */,
+				405482251DD9216C003F56DC /* EarthClass.swift in Sources */,
 				40CC619C1DD118BD00178B7A /* GameScene.swift in Sources */,
 				2E6E3DCE1DD22F7C00C4298F /* VerificationCodeView.swift in Sources */,
 				402E0A851DD17009003C7969 /* InitialScene.swift in Sources */,
 				40CC619E1DD118BD00178B7A /* GameViewController.swift in Sources */,
 				2E031CC21DD27D3D002BD6E2 /* VerificationCodeController.swift in Sources */,
-				40C8F71B1DD8D4D9009B4E24 /* Asteroid.swift in Sources */,
+				40C8F71B1DD8D4D9009B4E24 /* AsteroidClass.swift in Sources */,
 				402E0A871DD17027003C7969 /* OptionsScene.swift in Sources */,
-				40C8F71D1DD8D4E3009B4E24 /* Aim.swift in Sources */,
+				40C8F71D1DD8D4E3009B4E24 /* AimClass.swift in Sources */,
 				2E6E3DCC1DD2232F00C4298F /* MPCManager.swift in Sources */,
 				40CC61941DD118BD00178B7A /* AppDelegate.swift in Sources */,
 			);
