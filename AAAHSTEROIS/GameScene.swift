@@ -27,7 +27,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             touchPositionX = touchLocation.x
             touchPositionY = touchLocation.y
-            
+            /*
+            let location = touch.location(in: self.scene?.view)
+            let hitResults = self.scene?.view?.hitTest(location, with: nil)
+            for result in (hitResults as! [SCNHitTestResult]) {
+                if result.node == (self.sceneView.scene as! MainScene).cubeNode {
+                    self.spriteScene.score += 1
+                }
+            }
+ */
         }
         
     }
