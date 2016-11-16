@@ -173,7 +173,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
     
     func physicsWorld(_ world: SCNPhysicsWorld,didBegin contact: SCNPhysicsContact) {
         if (contact.nodeA.name == "earth" || contact.nodeA.name == "asteroid") && (contact.nodeB.name == "earth" || contact.nodeB.name == "asteroid") {
-            print("colisao acontecendo")
+            //print("colisao acontecendo")
         }
     }
 

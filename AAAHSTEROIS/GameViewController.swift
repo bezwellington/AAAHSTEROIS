@@ -19,8 +19,8 @@ class GameViewController: UIViewController {
   
   let appDelegate = UIApplication.shared.delegate as! AppDelegate
   var codeView: VerificationCodeView!
-  var gameScene = GameScene()
   let deadlineTime = DispatchTime.now()
+  var overlay = GameScene()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -31,24 +31,31 @@ class GameViewController: UIViewController {
     appDelegate.mpcManager.delegate = self
     appDelegate.mpcManager.enableServices(enable: true)
     
-    loadGameScene()
+    game3DView.loadGame()
+    game3DView.showsStatistics = true
     
+    overlay = GameScene(size: self.view.bounds.size)
+    
+    game3DView.overlaySKScene = overlay
+
     //Função que começa a pegar a aceleração do Remote Control
     startControllerAcceleration()
     
   }
+
+
   
-  func loadGameScene(){
-    
-    game3DView.loadGame()
-    game3DView.showsStatistics = true
-    
-    let overlay = GameScene(size: self.view.bounds.size)
-    // Sobrepõe o conteúdo 2D do SpriteKit
-    game3DView.overlaySKScene = overlay
-    
-    
-  }
+//  func loadGameScene(){
+//    
+//    game3DView.loadGame()
+//    game3DView.showsStatistics = true
+//    
+//    let overlay = GameScene(size: self.view.bounds.size)
+//    // Sobrepõe o conteúdo 2D do SpriteKit
+//    game3DView.overlaySKScene = overlay
+//    
+//    
+//  }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -60,14 +67,18 @@ class GameViewController: UIViewController {
     for item in presses {
       //Se o TrackPad for pressionado
       if item.type == .select {
-        gameScene.count -= 1
-        //TODO: MUDAR SPRITE DA MIRA PARA MENOS ENERGIA
-        print("Count = \(gameScene.count)")
+        if overlay.count > 0{
+        overlay.count -= 1
+          
+        //TODO: MANDAR COR REAL DA MIRA
+        overlay.aimClass.changeColor(color: "verde", number: overlay.count)
+        print("Count = \(overlay.count)")
+        }
       }
     }
-    // Se o número de munição for 2
-    if(gameScene.count == 2){
-      //TODO: MUDAR SPRITE DA MIRA PARA RELOAD
+    // Se o número de munição for 0
+    if(overlay.count == 0){
+      //TODO: BOTAR "RELOAD" ESCRITO PISCANDO NA MIRA
       print("voce precisa recarregar sua arma")
     }
   }
@@ -96,9 +107,8 @@ class GameViewController: UIViewController {
   
   // Função que recarrega arma
   func reloadWeapon(){
-    self.gameScene.count += 1
+    self.overlay.count += 1
   }
-  
   
   
 }
