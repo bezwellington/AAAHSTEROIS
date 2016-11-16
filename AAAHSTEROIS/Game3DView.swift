@@ -15,6 +15,10 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
     let possibleAsteroidColor:[UIColor] = [UIColor.cyan, UIColor.yellow]
     let asteroidCategory: Int = 1
     let earthCategory: Int = 1
+  
+    var asteroidFrequency = 3.0
+    var currentAsteroidRound = 0
+    var asteroidsTimer = Timer()
     
     // Estou ajeitando as classes 
     var earthClass = EarthClass()
@@ -22,6 +26,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
 
   
   func loadGame(){
+    
     
     sceneSetup()
     earthSetup()
@@ -31,14 +36,24 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
   
   func createAsteroidsTimer() {
     
-    let asteroidsTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(addAsteroid), userInfo: nil, repeats: true)
+    if asteroidsTimer.isValid {
+      
+      asteroidsTimer.invalidate()
+    }
+    
+    asteroidsTimer = Timer()
+    
+    self.asteroidsTimer = Timer.scheduledTimer(timeInterval: self.asteroidFrequency, target: self, selector: #selector(addAsteroid), userInfo: nil, repeats: true)
+    
     asteroidsTimer.fire()
     //print("created 3d asteroid timer")
   }
   
   func animateAsteroid(asteroidNode:SCNNode, xPosition:Float){
     
-    asteroidNode.runAction(SCNAction.move(to: SCNVector3Make(xPosition, -5, -20), duration: 4)){
+    let asteroidSpeed = Float(arc4random_uniform(6)) + 2.5
+    
+    asteroidNode.runAction(SCNAction.move(to: SCNVector3Make(xPosition, -5, -20), duration: TimeInterval(asteroidSpeed))){
       asteroidNode.removeFromParentNode()
       //print("removed 3d asteroid")
     }
@@ -68,6 +83,17 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
     
     self.scene?.rootNode.addChildNode(asteroidNode)
     
+    self.currentAsteroidRound += 1
+    
+    if self.currentAsteroidRound == 10{
+      
+      if asteroidFrequency >= 1.0{
+      asteroidFrequency -= 0.5
+      createAsteroidsTimer()
+      }
+      self.currentAsteroidRound = 0
+    }
+    
     
     //print("created 3d asteroid")
     animateAsteroid(asteroidNode: asteroidNode, xPosition: randomX-5)
@@ -93,7 +119,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
     
     //CLOUDS
  
-//    let cloudGeometry = SCNSphere(radius:12.5) //730
+//    let cloudGeometry = SCNSphere(radius:13) //730
 //    cloudGeometry.segmentCount = 80 //250
 //    
 //    cloudGeometry.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "cloudMap")
@@ -117,12 +143,24 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
     ambientLightNode.light!.color = UIColor(white: 0.67, alpha: 1.0)
     scene.rootNode.addChildNode(ambientLightNode)
     
-    let omniLightNode = SCNNode()
-    omniLightNode.light = SCNLight()
-    omniLightNode.light!.type = SCNLight.LightType.omni
-    omniLightNode.light!.color = UIColor(white: 0.75, alpha: 1.0)
-    omniLightNode.position = SCNVector3Make(0, 0, 50)
-    scene.rootNode.addChildNode(omniLightNode)
+//    let omniLightNode = SCNNode()
+//    omniLightNode.light = SCNLight()
+//    omniLightNode.light!.type = SCNLight.LightType.omni
+//    omniLightNode.light!.color = UIColor(white: 0.75, alpha: 1.0)
+//    omniLightNode.position = SCNVector3Make(0, 0, 50)
+//    scene.rootNode.addChildNode(omniLightNode)
+    
+    let directionalLightNode = SCNNode()
+    directionalLightNode.light = SCNLight()
+    directionalLightNode.light!.type = SCNLight.LightType.spot
+    directionalLightNode.light!.color = UIColor(white: 0.67, alpha: 1.0)
+    directionalLightNode.position = SCNVector3Make(0, 10, -20)
+    directionalLightNode.constraints?.append(SCNLookAtConstraint(target: earthNode))
+    directionalLightNode.light!.castsShadow = true
+    directionalLightNode.light!.shadowColor = UIColor.black
+
+    scene.rootNode.addChildNode(directionalLightNode)
+
     
     let cameraNode = SCNNode()
     cameraNode.camera = SCNCamera()
