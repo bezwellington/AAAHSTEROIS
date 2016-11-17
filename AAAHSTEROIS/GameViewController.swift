@@ -25,20 +25,19 @@ class GameViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    codeView = VerificationCodeView(frame: self.view.bounds, verificationCode: "1234")
-    self.view.addSubview(codeView)
+    //codeView = VerificationCodeView(frame: self.view.bounds, verificationCode: "1234")
+    //self.view.addSubview(codeView)
     
     appDelegate.mpcManager.delegate = self
     appDelegate.mpcManager.enableServices(enable: true)
     
-    /*
-    game3DView.loadGame()
+    /*    game3DView.loadGame()
     game3DView.showsStatistics = true
     overlay = GameScene(size: self.view.bounds.size)
     game3DView.overlaySKScene = overlay
-     */
+    */
     
-    //loadGameScene()
+    loadGameScene()
   }
 
 
