@@ -151,7 +151,7 @@ extension MPCManager: MCSessionDelegate {
         
         switch state {
         case .connected:
-            print("\n \n Connected to session: \(session)\n \n")
+            print("\n \n Connected to session: \(session)\n\n")
             delegate?.connectedWithPeer(peerID: peerID)
         case .connecting:
             print("\n\nConnecting to session: \(session)\n\n")
@@ -163,9 +163,15 @@ extension MPCManager: MCSessionDelegate {
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         print("\n\n DID RECEIVE DATA FROM IPHONE \n\n")
         
-        let messageReceived: Dictionary? = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : String]
+        let messageReceived: Dictionary? = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : Any]
         
-        print("\n \n MESSAGE RECEIVED: \(messageReceived) \n\n")
+        
+        let peerName = messageReceived?["sender"] as? String
+        let dx = messageReceived?["dx"] as? Double
+        let dy = messageReceived?["dy"] as? Double
+        
+        print(" \n \n MESSAGE RECEIVED FROM \(peerName) direction: \(dx,dy)")
+        //print("\n \n MESSAGE RECEIVED: \(peerName) \n\n")
     }
     
     func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {

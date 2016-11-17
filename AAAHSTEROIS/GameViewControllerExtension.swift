@@ -12,7 +12,6 @@ import MultipeerConnectivity
 extension GameViewController: MPCManagerDelegate {
     
     func foundPeer(peer: MCPeerID) {
-        
         print("Found Peer!")
     }
     
@@ -20,6 +19,7 @@ extension GameViewController: MPCManagerDelegate {
         print("Lost Peer!")
     }
     
+    //não é usado na apple tv  (por enquanto?) 
     func invitationWasReceived(fromPeer: String, codeReceived: String?) {
         //var textField: UITextField?
         
@@ -59,9 +59,9 @@ extension GameViewController: MPCManagerDelegate {
         }
     }
     
-    //quando a conexão é estabelecida, a tela muda para a tela do controle
+    //quando a conexão é estabelecida, a tela muda para a gamescene
     func connectedWithPeer(peerID: MCPeerID) {
-        //loadControllerScene()
+        loadGameScene()
         print("\n\n start session with \(peerID.displayName)\n\n")
     }
 }

@@ -26,8 +26,6 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
 
   
   func loadGame(){
-    
-    
     sceneSetup()
     earthSetup()
     createAsteroidsTimer()
