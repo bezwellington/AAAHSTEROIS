@@ -25,18 +25,14 @@ class GameViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    //codeView = VerificationCodeView(frame: self.view.bounds, verificationCode: "1234")
-    //self.view.addSubview(codeView)
+    //comentar essas duas linhas quando quiser pular a conexão
+    codeView = VerificationCodeView(frame: self.view.bounds, verificationCode: "1234")
+    self.view.addSubview(codeView)
     
     appDelegate.mpcManager.delegate = self
     appDelegate.mpcManager.enableServices(enable: true)
     
-    /*    game3DView.loadGame()
-    game3DView.showsStatistics = true
-    overlay = GameScene(size: self.view.bounds.size)
-    game3DView.overlaySKScene = overlay
-    */
-    
+    //comentar essa linha quando quiser testar conexão com 2 players
     loadGameScene()
   }
 
@@ -48,6 +44,7 @@ class GameViewController: UIViewController {
     game3DView.showsStatistics = true
     
     overlay = GameScene(size: self.view.bounds.size)
+    
     // Sobrepõe o conteúdo 2D do SpriteKit
     game3DView.overlaySKScene = overlay
     overlay.game3DView = game3DView

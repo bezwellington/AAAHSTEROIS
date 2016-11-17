@@ -19,7 +19,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var touchPositionX: CGFloat = 0.0
   var touchPositionY: CGFloat = 0.0
   
-  
     override func didMove(to view: SKView) {
         addAim()
     }
