@@ -8,6 +8,7 @@
 
 import SpriteKit
 import GameplayKit
+import SceneKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
   
@@ -25,14 +26,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     for touch in touches {
-      let touchLocation = touch.location(in: self)
+        
+      game3DView = self.game3DView as SCNView as! Game3DView
+      let touchLocation = touch.location(in: game3DView)
       
       touchPositionX = touchLocation.x
       touchPositionY = touchLocation.y
-      
-        print(game3DView.bounds.size)
-        print(self.scene!.view?.bounds.size)
-        var convert3DGame = game3DView.convert(aimClass.aim.position, from: self.scene!.view)
+        
+      var convert3DGame = game3DView.convert(aimClass.aim.position, from: self.scene!.view)
         
         //print(convert3DGame)
         let hitResuts = game3DView.hitTest(convert3DGame, options: nil)
