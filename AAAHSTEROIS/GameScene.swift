@@ -12,6 +12,7 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
   
   var aimClass = AimClass()
+  var game3DView = Game3DView()
   var count = 8
   // Persist the initial touch position of the remote
   var touchPositionX: CGFloat = 0.0
@@ -28,15 +29,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       
       touchPositionX = touchLocation.x
       touchPositionY = touchLocation.y
-      /*
-       let location = touch.location(in: self.scene?.view)
-       let hitResults = self.scene?.view?.hitTest(location, with: nil)
-       for result in (hitResults as! [SCNHitTestResult]) {
-       if result.node == (self.sceneView.scene as! MainScene).cubeNode {
-       self.spriteScene.score += 1
-       }
-       }
-       */
+      
+        print(game3DView.bounds.size)
+        print(self.scene!.view?.bounds.size)
+        var convert3DGame = game3DView.convert(aimClass.aim.position, from: self.scene!.view)
+        
+        //print(convert3DGame)
+        let hitResuts = game3DView.hitTest(convert3DGame, options: nil)
+        print(hitResuts.count)
+        for t in hitResuts{
+            if t.node.name == "button" {
+                print("encostei, viadao")
+            }
+        }
     }
     
   }
