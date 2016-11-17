@@ -28,6 +28,7 @@
 		EFB374E01DD8FF2200B9A6D0 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB374DF1DD8FF2200B9A6D0 /* InitialViewController.swift */; };
 		EFB374E21DD8FFF600B9A6D0 /* HussarBdSuprObl.otf in Resources */ = {isa = PBXBuildFile; fileRef = EFB374E11DD8FFF600B9A6D0 /* HussarBdSuprObl.otf */; };
 		EFB374E41DD9052600B9A6D0 /* OCRAStd.otf in Resources */ = {isa = PBXBuildFile; fileRef = EFB374E31DD9052600B9A6D0 /* OCRAStd.otf */; };
+		EFE26F841DDE1E6700979881 /* explosion.scnp in Resources */ = {isa = PBXBuildFile; fileRef = EFE26F831DDE1E6700979881 /* explosion.scnp */; };
 		EFF0362C1DD2565700EF97DD /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF0362A1DD2565700EF97DD /* spark.png */; };
 		EFF0362E1DD27C9600EF97DD /* Game3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF0362D1DD27C9600EF97DD /* Game3DView.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		EFB374DF1DD8FF2200B9A6D0 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		EFB374E11DD8FFF600B9A6D0 /* HussarBdSuprObl.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HussarBdSuprObl.otf; sourceTree = "<group>"; };
 		EFB374E31DD9052600B9A6D0 /* OCRAStd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = OCRAStd.otf; sourceTree = "<group>"; };
+		EFE26F831DDE1E6700979881 /* explosion.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = explosion.scnp; sourceTree = "<group>"; };
 		EFF0362A1DD2565700EF97DD /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		EFF0362D1DD27C9600EF97DD /* Game3DView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game3DView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				EF8FA1941DD7AE7100CB350F /* fire.scnp */,
+				EFE26F831DDE1E6700979881 /* explosion.scnp */,
 				EFF0362A1DD2565700EF97DD /* spark.png */,
 				EFB374E11DD8FFF600B9A6D0 /* HussarBdSuprObl.otf */,
 				EFB374E31DD9052600B9A6D0 /* OCRAStd.otf */,
@@ -198,7 +201,7 @@
 				TargetAttributes = {
 					40CC618F1DD118BD00178B7A = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 4BPZR4X6FJ;
+						DevelopmentTeam = CBJLEDS7Z4;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFB374E41DD9052600B9A6D0 /* OCRAStd.otf in Resources */,
+				EFE26F841DDE1E6700979881 /* explosion.scnp in Resources */,
 				EFF0362C1DD2565700EF97DD /* spark.png in Resources */,
 				EF8FA1951DD7AE7100CB350F /* fire.scnp in Resources */,
 				40CC619A1DD118BD00178B7A /* Game.xcassets in Resources */,
@@ -372,7 +376,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 4BPZR4X6FJ;
+				DEVELOPMENT_TEAM = CBJLEDS7Z4;
 				INFOPLIST_FILE = AAAHSTEROIS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "WBS-Corporation.AAAHSTEROIS";
@@ -386,7 +390,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 4BPZR4X6FJ;
+				DEVELOPMENT_TEAM = CBJLEDS7Z4;
 				INFOPLIST_FILE = AAAHSTEROIS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "WBS-Corporation.AAAHSTEROIS";

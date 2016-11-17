@@ -19,10 +19,6 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
     var asteroidFrequency = 3.0
     var currentAsteroidRound = 0
     var asteroidsTimer = Timer()
-    
-    // Estou ajeitando as classes 
-    var earthClass = EarthClass()
-    var asteroidClass = AsteroidClass()
 
   
   func loadGame(){
@@ -110,6 +106,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
     earthNode.name = "earth"
     earthNode.physicsBody = SCNPhysicsBody.kinematic()
     earthNode.physicsBody?.categoryBitMask = earthCategory
+
     self.scene?.rootNode.addChildNode(earthNode)
     
     earthNode.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 1, y: 1, z: 1, duration: 70)))
@@ -171,6 +168,17 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
     
     func physicsWorld(_ world: SCNPhysicsWorld,didBegin contact: SCNPhysicsContact) {
         if (contact.nodeA.name == "earth" || contact.nodeA.name == "asteroid") && (contact.nodeB.name == "earth" || contact.nodeB.name == "asteroid") {
+            
+            let emitterNode = SCNNode()
+            emitterNode.position = contact.contactPoint
+            
+            let explosionParticles = SCNParticleSystem(named: "explosion.scnp", inDirectory: nil)!
+
+            emitterNode.addParticleSystem(explosionParticles)
+            self.scene?.rootNode.addChildNode(emitterNode)
+
+            
+            //print(contact.contactPoint)
             //print("colisao acontecendo")
         }
     }
