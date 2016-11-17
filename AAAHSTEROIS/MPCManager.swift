@@ -17,6 +17,8 @@ protocol MPCManagerDelegate {
     func invitationWasReceived(fromPeer: String, codeReceived: String?)
     
     func connectedWithPeer(peerID: MCPeerID)
+    
+    func handleMessageReceived (messageReceived: Dictionary<String, Any>?)
 }
 
 class MPCManager: NSObject {
@@ -163,16 +165,11 @@ extension MPCManager: MCSessionDelegate {
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         print("\n\n DID RECEIVE DATA FROM IPHONE \n\n")
         
-        let messageReceived: Dictionary? = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : Any]
+        let dictionaryReceived: Dictionary? = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : Any]
         
-        
-        let peerName = messageReceived?["sender"] as? String
-        let dx = messageReceived?["dx"] as? Double
-        let dy = messageReceived?["dy"] as? Double
-        
-        print(" \n \n MESSAGE RECEIVED FROM \(peerName) direction: \(dx,dy)")
-        //print("\n \n MESSAGE RECEIVED: \(peerName) \n\n")
+        delegate?.handleMessageReceived(messageReceived: dictionaryReceived)
     }
+    
     
     func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
         

@@ -64,4 +64,28 @@ extension GameViewController: MPCManagerDelegate {
         loadGameScene()
         print("\n\n start session with \(peerID.displayName)\n\n")
     }
+    
+    func handleMessageReceived (messageReceived: Dictionary<String, Any>?){
+        
+        let shoot = messageReceived?["shoot"] as? Bool
+        let peerName = messageReceived?["sender"] as? String
+        
+        print("git\n shoot: \(shoot)")
+        
+        if shoot! {
+             print("\n SHOOT RECEIVED FROM \(peerName)")
+            
+            //TODO: chamar aqui a função que atira no asteroide com o player 2
+        } else {
+            
+            let dx = messageReceived?["dx"] as? Double
+            let dy = messageReceived?["dy"] as? Double
+            
+            print("\n MOVE RECEIVED FROM \(peerName) direction: \(dx,dy)")
+            
+            //TODO: chamar aqui a função que move a mira do player 2
+            
+        }
+        
+    }
 }
