@@ -163,7 +163,6 @@ extension MPCManager: MCSessionDelegate {
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        print("\n\n DID RECEIVE DATA FROM IPHONE \n\n")
         
         let dictionaryReceived: Dictionary? = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : Any]
         

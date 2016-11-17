@@ -17,6 +17,7 @@ extension GameViewController: MPCManagerDelegate {
     
     func lostPeer() {
         print("Lost Peer!")
+        
     }
     
     //não é usado na apple tv  (por enquanto?) 
@@ -61,7 +62,12 @@ extension GameViewController: MPCManagerDelegate {
     
     //quando a conexão é estabelecida, a tela muda para a gamescene
     func connectedWithPeer(peerID: MCPeerID) {
+        //TODO: tratar a queda de conexão durante o jogo e a volta da conexão
+        //se a conexão cai durante o jogo, não é necessário dar load na gameScene novamente
+        
         loadGameScene()
+        //desativa a busca por peers durante a partida
+        appDelegate.mpcManager.browser.stopBrowsingForPeers()
         print("\n\n start session with \(peerID.displayName)\n\n")
     }
     
