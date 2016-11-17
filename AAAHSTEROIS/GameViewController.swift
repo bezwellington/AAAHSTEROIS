@@ -50,6 +50,7 @@ class GameViewController: UIViewController {
     overlay = GameScene(size: self.view.bounds.size)
     // Sobrepõe o conteúdo 2D do SpriteKit
     game3DView.overlaySKScene = overlay
+    overlay.game3DView = game3DView
     
     //Função que começa a pegar a aceleração do Remote Control
     startControllerAcceleration()

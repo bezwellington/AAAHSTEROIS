@@ -19,10 +19,6 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
     var asteroidFrequency = 3.0
     var currentAsteroidRound = 0
     var asteroidsTimer = Timer()
-    
-    // Estou ajeitando as classes 
-    var earthClass = EarthClass()
-    var asteroidClass = AsteroidClass()
 
   
   func loadGame(){
@@ -182,8 +178,8 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
             self.scene?.rootNode.addChildNode(emitterNode)
 
             
-            print(contact.contactPoint)
-            print("colisao acontecendo")
+            //print(contact.contactPoint)
+            //print("colisao acontecendo")
         }
     }
 
