@@ -45,7 +45,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
   
   func animateAsteroid(asteroidNode:SCNNode, xPosition:Float){
     
-    let asteroidSpeed = Float(arc4random_uniform(6)) + 2.5
+    let asteroidSpeed = Float(arc4random_uniform(6)) + 4.5
     
     asteroidNode.runAction(SCNAction.move(to: SCNVector3Make(xPosition, -5, -20), duration: TimeInterval(asteroidSpeed))){
       asteroidNode.removeFromParentNode()
@@ -81,7 +81,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
     
     if self.currentAsteroidRound == 10{
       
-      if asteroidFrequency >= 1.0{
+      if asteroidFrequency >= 2.0{
       asteroidFrequency -= 0.5
       createAsteroidsTimer()
       }
@@ -169,17 +169,29 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
     func physicsWorld(_ world: SCNPhysicsWorld,didBegin contact: SCNPhysicsContact) {
         if (contact.nodeA.name == "earth" || contact.nodeA.name == "asteroid") && (contact.nodeB.name == "earth" || contact.nodeB.name == "asteroid") {
             
+            //asteroidsTimer.invalidate()
+            
             let emitterNode = SCNNode()
             emitterNode.position = contact.contactPoint
+            emitterNode.name = "explosion"
             
-            let explosionParticles = SCNParticleSystem(named: "explosion.scnp", inDirectory: nil)!
+            let explosionParticles = SCNParticleSystem(named: "miniExplosion.scnp", inDirectory: nil)!
 
             emitterNode.addParticleSystem(explosionParticles)
             self.scene?.rootNode.addChildNode(emitterNode)
 
+            if contact.nodeA.name == "asteroid"{
+             contact.nodeA.removeFromParentNode()
+            } else{
+                contact.nodeB.removeFromParentNode()
+            }
             
-            //print(contact.contactPoint)
-            //print("colisao acontecendo")
+//            for node in (self.scene?.rootNode.childNodes)!{
+//                if node.name != "explosion"{
+//                node.removeFromParentNode()
+//                }
+//            }
+
         }
     }
 

@@ -26,8 +26,8 @@ class GameViewController: UIViewController {
     super.viewDidLoad()
     
     //comentar essas duas linhas quando quiser pular a conexão
-    codeView = VerificationCodeView(frame: self.view.bounds, verificationCode: "1234")
-    self.view.addSubview(codeView)
+    //codeView = VerificationCodeView(frame: self.view.bounds, verificationCode: "1234")
+    //self.view.addSubview(codeView)
     
     appDelegate.mpcManager.delegate = self
     appDelegate.mpcManager.enableServices(enable: true)
@@ -76,6 +76,7 @@ class GameViewController: UIViewController {
     // Se o número de munição for 0
     if(overlay.count == 0){
       //TODO: BOTAR "RELOAD" ESCRITO PISCANDO NA MIRA
+    overlay.aimClass.changeColor(color: "verde", number: 0)
       print("voce precisa recarregar sua arma")
     }
   }

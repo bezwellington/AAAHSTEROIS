@@ -44,8 +44,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let hitResuts = game3DView.hitTest(pos, options: nil)
             print(hitResuts.count)
             for t in hitResuts{
-                if t.node.name == "button" {
+                if t.node.name == "asteroid" {
                     print("encostei, viadao")
+                    t.node.removeFromParentNode()
                 }
             }
         }
