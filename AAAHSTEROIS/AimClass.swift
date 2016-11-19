@@ -15,8 +15,8 @@ class AimClass {
     
     var aim = SKSpriteNode(imageNamed: "miraverde8")
     let aimCategory: Int = 1
-  
-  func changeColor(color:String,number:Int){
-    self.aim.texture = SKTexture(imageNamed: "mira\(color)\(number)")
-  }
+    
+    func changeColor(color:String,number:Int){
+        self.aim.texture = SKTexture(imageNamed: "mira\(color)\(number)")
+    }
 }

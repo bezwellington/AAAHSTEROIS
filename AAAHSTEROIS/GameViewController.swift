@@ -26,18 +26,16 @@ class GameViewController: UIViewController {
     super.viewDidLoad()
     
     //comentar essas duas linhas quando quiser pular a conexão
-    //codeView = VerificationCodeView(frame: self.view.bounds, verificationCode: "1234")
-    //self.view.addSubview(codeView)
+    codeView = VerificationCodeView(frame: self.view.bounds, verificationCode: "1234")
+    self.view.addSubview(codeView)
     
     appDelegate.mpcManager.delegate = self
     appDelegate.mpcManager.enableServices(enable: true)
     
     //comentar essa linha quando quiser testar conexão com 2 players
-    loadGameScene()
+    //loadGameScene()
   }
 
-
-  
   func loadGameScene(){
     
     game3DView.loadGame()

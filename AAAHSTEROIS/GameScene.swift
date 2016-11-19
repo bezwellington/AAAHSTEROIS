@@ -9,22 +9,34 @@
 import SpriteKit
 import GameplayKit
 import SceneKit
+import MultipeerConnectivity
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
   
-  var aimClass = AimClass()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var connectedPeers = [MCPeerID]()
+
+    var aimClass = AimClass()
     var game3DView: Game3DView!
-  var count = 8
-  // Persist the initial touch position of the remote
-  var touchPositionX: CGFloat = 0.0
-  var touchPositionY: CGFloat = 0.0
+    var count = 8
+    
+    // Persist the initial touch position of the remote
+    var touchPositionX: CGFloat = 0.0
+    var touchPositionY: CGFloat = 0.0
   
     override func didMove(to view: SKView) {
         addAim()
+        connectedPeers = getConnectedPeers()
+        print("\n\n CONNECTED PEERS COUNT: \(connectedPeers.count) \n\n")
     }
     
     func getViewPosition(pos : CGPoint) -> CGPoint{
         return CGPoint(x:pos.x,y:1080-pos.y)
+    }
+    
+    func getConnectedPeers() -> [MCPeerID] {
+        
+        return appDelegate.mpcManager.session.connectedPeers
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -81,7 +93,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 // Move the sprite
                 aimClass.aim.position = CGPoint(x: x, y: y)
-                
             }
             // Persist latest touch position
             touchPositionY = location.y
