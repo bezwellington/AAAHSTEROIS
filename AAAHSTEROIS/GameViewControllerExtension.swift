@@ -24,7 +24,7 @@ extension GameViewController: MPCManagerDelegate {
         
     }
     
-    //não é usado na apple tv  (por enquanto?) 
+    //não é usado na apple tv
     func invitationWasReceived(fromPeer: String, codeReceived: String?) {
         //var textField: UITextField?
         
@@ -65,20 +65,10 @@ extension GameViewController: MPCManagerDelegate {
     }
     
     //quando a conexão é estabelecida, a tela muda para a gamescene
+    
     func connectedWithPeer(peerID: MCPeerID) {
         //TODO: tratar a queda de conexão durante o jogo e a volta da conexão
         //se a conexão cai durante o jogo, não é necessário dar load na gameScene novamente
-        
-        DispatchQueue.main.async {
-            self.codeView.removeFromSuperview()
-        }
-        
-        loadGameScene()
-        
-        //desativa a busca por peers durante a partida
-        appDelegate.mpcManager.browser.stopBrowsingForPeers()
-        
-        print("\n\n start session with \(peerID.displayName)\n\n")
     }
     
     func handleMessageReceived (messageReceived: Dictionary<String, Any>?){
