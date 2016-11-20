@@ -86,6 +86,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    func searchAndDestroyAsteroid(name: String) {
+        
+        for i in 0...(iphonePlayer.count - 1) {
+            if iphonePlayer[i].name == name {
+                
+                iphonePlayer[i].shoot()
+                
+                //MARK: descomentar quando existir a classe do asteroide e for possível checar o color matching
+//                let pos = iphonePlayer[i].laser.position
+//                
+//                let hitResuts = game3DView.hitTest(pos, options: nil)
+//                print(hitResuts.count)
+//                for t in hitResuts{
+//                    if t.node.name == "asteroid" {
+//                        //TODO: CHECAR O COLOR MATCHING
+//                        print("encostei, viadao")
+//                        t.node.removeFromParentNode()
+//                    }
+//                }
+                break
+            }
+        }
+        
+        
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             

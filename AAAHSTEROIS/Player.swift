@@ -48,18 +48,23 @@ class Player {
     }
     
     func shoot() {
-        energy = energy - 1;
         
-        let texture = "mira\(color)\(energy)"
+        if energy > 0 {
+        energy = energy - 1;
+        print("\n energy: \(energy)")
+        
+        let texture = "mira\(color!)\(energy!)"
+        print("\n texture path: \(texture)")
         
         self.laser.texture = SKTexture(imageNamed: texture)
+        }
     }
     
     func recharge() {
         energy = energy + 4
         if energy > 8 { energy = 8 }
         
-        let texture = "mira\(color)\(energy)"
+        let texture = "mira\(color!)\(energy!)"
         
         self.laser.texture = SKTexture(imageNamed: texture)
     }
@@ -72,6 +77,6 @@ class IphonePlayer: Player {
     func move(direction: CGVector) {
         self.laser.physicsBody?.velocity = direction
     }
-    
+    c
 }
 
