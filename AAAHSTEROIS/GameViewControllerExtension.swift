@@ -92,10 +92,12 @@ extension GameViewController: MPCManagerDelegate {
             
             let dx = messageReceived?["dx"] as? Double
             let dy = messageReceived?["dy"] as? Double
-            
+
+            let vector = CGVector(dx: dx!, dy: dy!)
             print("\n MOVE RECEIVED FROM \(peerName) direction: \(dx,dy)")
             
             //TODO: chamar aqui a função que move a mira do player 2
+            overlay.searchAndMovePlayer(name: peerName!, direction: vector)
             
         }
         

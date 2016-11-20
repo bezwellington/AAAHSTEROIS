@@ -13,30 +13,77 @@ import MultipeerConnectivity
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
   
+    //referencia ao delegate pra poder acessa o MPCManager
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var connectedPeers = [MCPeerID]()
 
     var aimClass = AimClass()
     var game3DView: Game3DView!
     var count = 8
+    
+    var iphonePlayer: [IphonePlayer]!
     
     // Persist the initial touch position of the remote
     var touchPositionX: CGFloat = 0.0
     var touchPositionY: CGFloat = 0.0
   
     override func didMove(to view: SKView) {
+        setupBorder()
         addAim()
-        connectedPeers = getConnectedPeers()
-        print("\n\n CONNECTED PEERS COUNT: \(connectedPeers.count) \n\n")
+        iphonePlayer = setupPlayers()
+    }
+    
+    func setupBorder(){
+        let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
+        borderBody.friction = 0
+        borderBody.linearDamping = 0.0
+        self.physicsBody = borderBody
+        
     }
     
     func getViewPosition(pos : CGPoint) -> CGPoint{
         return CGPoint(x:pos.x,y:1080-pos.y)
     }
     
-    func getConnectedPeers() -> [MCPeerID] {
+    func setupPlayers() -> [IphonePlayer] {
+        //coordenada da mira inicialmente no centro pra todos os players, futuramente pode ser mudado para um cálculo de coordenada que leva em conta a quantidade de players conectados
         
-        return appDelegate.mpcManager.session.connectedPeers
+        print("\n will start setup players \n")
+        let coordinate = CGPoint(x:self.frame.midX, y:self.frame.midY)
+        var color = String()
+        var name = String()
+        
+        let peers = appDelegate.mpcManager.session.connectedPeers
+        var players = [IphonePlayer]()
+        
+        let aimColors = ["vermelha", "verde", "azul", "amarela"]
+    
+        //configura cada um dos players conectados e adiciona no array de players
+        print("\n\n PEER COUNT: \(peers.count) \nPEER FOUND: \(peers[0].displayName)")
+        for i in 0...(peers.count - 1)  {
+            color = aimColors[i]
+            name = peers[i].displayName
+            print("setup player \(name)")
+            let player = IphonePlayer(coordinate: coordinate, color: color, name: name, number: i)
+            self.addChild(player.laser)
+            
+            players.append(player)
+        }
+        
+        return players
+    }
+    
+    //chamada quando recebe uma mensagem do iphone para mover a mira
+    func searchAndMovePlayer (name: String, direction: CGVector){
+        var dir = direction
+        //busca o nome do jogador linearmente e quando achar move a mira na direção recebida
+        for i in 0...(iphonePlayer.count - 1) {
+            if iphonePlayer[i].name == name {
+                print("\n SEARCH AND MOVE - FOUND PLAYER")
+                dir.applyModule(speed: iphonePlayer[i].speed)
+                iphonePlayer[i].move(direction: dir)
+                break
+            }
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -109,6 +156,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         aimClass.aim.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
         addChild(aimClass.aim)
     }
+
     
     
 }

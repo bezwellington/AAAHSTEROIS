@@ -10,31 +10,39 @@ import SpriteKit
 
 class Player {
     
-    
     var coordinate: CGPoint!
     var laser: SKSpriteNode!
     var energy: Int!
+    var speed: CGFloat!
     
     let category: Int = 1
     let color: String!
     let name: String!
+    let number: Int!
     
     
-    init(coordinate: CGPoint, color: String, name: String){
+    init(coordinate: CGPoint, color: String, name: String, number: Int){
         
         self.energy = 8
+        self.speed = CGFloat(60.0)
         self.coordinate = coordinate
         self.color = color
         self.name = name
+        self.number = number
+        
         self.laser = setupLaser(color: color)
     }
     
     func setupLaser(color: String) -> SKSpriteNode{
         let laser = SKSpriteNode(texture: SKTexture(imageNamed:"mira\(color)8"))
+        laser.position = self.coordinate
         laser.physicsBody = SKPhysicsBody(circleOfRadius: laser.size.width/2)
         laser.physicsBody?.affectedByGravity = false
         laser.physicsBody?.isDynamic = true
         laser.physicsBody?.velocity = CGVector.zero
+        
+        //TODO: tirar aquele pulinho escroto que acontece quando encosta na borda
+        // (linearDamping = 0 nao resolve)
         
         return laser
     }
@@ -55,6 +63,11 @@ class Player {
         
         self.laser.texture = SKTexture(imageNamed: texture)
     }
+    
+}
+
+//a movimentação do jogador de iphone será diferente da movimento feito com o remote
+class IphonePlayer: Player {
     
     func move(direction: CGVector) {
         self.laser.physicsBody?.velocity = direction

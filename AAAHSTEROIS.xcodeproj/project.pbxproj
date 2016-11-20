@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E031CC21DD27D3D002BD6E2 /* VerificationCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E031CC11DD27D3D002BD6E2 /* VerificationCodeController.swift */; };
 		2E031CC41DD283EF002BD6E2 /* GameViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E031CC31DD283EF002BD6E2 /* GameViewControllerExtension.swift */; };
 		2E6E3DCC1DD2232F00C4298F /* MPCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6E3DCB1DD2232F00C4298F /* MPCManager.swift */; };
 		2E6E3DCE1DD22F7C00C4298F /* VerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6E3DCD1DD22F7C00C4298F /* VerificationCodeView.swift */; };
 		2EABADCF1DE0E5EA004F0CF8 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EABADCE1DE0E5EA004F0CF8 /* Player.swift */; };
+		2EABADD21DE12184004F0CF8 /* CGVectorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EABADD11DE12184004F0CF8 /* CGVectorExtension.swift */; };
 		402E0A851DD17009003C7969 /* InitialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E0A841DD17009003C7969 /* InitialScene.swift */; };
 		402E0A871DD17027003C7969 /* OptionsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E0A861DD17027003C7969 /* OptionsScene.swift */; };
 		402E0A891DD1703B003C7969 /* DeviceListScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E0A881DD1703B003C7969 /* DeviceListScene.swift */; };
@@ -36,11 +36,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2E031CC11DD27D3D002BD6E2 /* VerificationCodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationCodeController.swift; sourceTree = "<group>"; };
 		2E031CC31DD283EF002BD6E2 /* GameViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewControllerExtension.swift; sourceTree = "<group>"; };
 		2E6E3DCB1DD2232F00C4298F /* MPCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
 		2E6E3DCD1DD22F7C00C4298F /* VerificationCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationCodeView.swift; sourceTree = "<group>"; };
 		2EABADCE1DE0E5EA004F0CF8 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		2EABADD11DE12184004F0CF8 /* CGVectorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGVectorExtension.swift; sourceTree = "<group>"; };
 		402E0A841DD17009003C7969 /* InitialScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialScene.swift; sourceTree = "<group>"; };
 		402E0A861DD17027003C7969 /* OptionsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsScene.swift; sourceTree = "<group>"; };
 		402E0A881DD1703B003C7969 /* DeviceListScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceListScene.swift; sourceTree = "<group>"; };
@@ -90,12 +90,19 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		2EABADD01DE1216C004F0CF8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2EABADD11DE12184004F0CF8 /* CGVectorExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		402E0A8C1DD17144003C7969 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				40CC619D1DD118BD00178B7A /* GameViewController.swift */,
 				EFB374DF1DD8FF2200B9A6D0 /* InitialViewController.swift */,
-				2E031CC11DD27D3D002BD6E2 /* VerificationCodeController.swift */,
 				2E031CC31DD283EF002BD6E2 /* GameViewControllerExtension.swift */,
 			);
 			name = Controller;
@@ -172,6 +179,7 @@
 		40CC61921DD118BD00178B7A /* AAAHSTEROIS */ = {
 			isa = PBXGroup;
 			children = (
+				2EABADD01DE1216C004F0CF8 /* Extensions */,
 				2E8D4F241DE0BD0700F5FA32 /* Resources */,
 				402E0A911DD17256003C7969 /* Scene */,
 				402E0A901DD17250003C7969 /* Data */,
@@ -272,9 +280,9 @@
 				2E6E3DCE1DD22F7C00C4298F /* VerificationCodeView.swift in Sources */,
 				402E0A851DD17009003C7969 /* InitialScene.swift in Sources */,
 				40CC619E1DD118BD00178B7A /* GameViewController.swift in Sources */,
-				2E031CC21DD27D3D002BD6E2 /* VerificationCodeController.swift in Sources */,
 				40C8F71B1DD8D4D9009B4E24 /* AsteroidClass.swift in Sources */,
 				402E0A871DD17027003C7969 /* OptionsScene.swift in Sources */,
+				2EABADD21DE12184004F0CF8 /* CGVectorExtension.swift in Sources */,
 				40C8F71D1DD8D4E3009B4E24 /* AimClass.swift in Sources */,
 				2E6E3DCC1DD2232F00C4298F /* MPCManager.swift in Sources */,
 				2EABADCF1DE0E5EA004F0CF8 /* Player.swift in Sources */,
