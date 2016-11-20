@@ -9,6 +9,10 @@
 import UIKit
 import MultipeerConnectivity
 
+enum MessageType: Int {
+    case MOVE = 1, SHOOT, RECHARGE
+}
+
 extension GameViewController: MPCManagerDelegate {
     
     func foundPeer(peer: MCPeerID) {
@@ -79,17 +83,21 @@ extension GameViewController: MPCManagerDelegate {
     
     func handleMessageReceived (messageReceived: Dictionary<String, Any>?){
         
-        let shoot = messageReceived?["shoot"] as? Bool
+        let rawValue = messageReceived?["message"] as? Int
+        
+        let messageType = MessageType(rawValue: rawValue!)
+        
+        print("\n MESSAGE TYPE : \(messageType) \n")
         let peerName = messageReceived?["sender"] as? String
         
-        print("git\n shoot: \(shoot)")
         
-        if shoot! {
+        switch messageType! {
+        case .SHOOT:
              print("\n SHOOT RECEIVED FROM \(peerName)")
             
             //TODO: chamar aqui a função que atira no asteroide com o player 2
             overlay.searchAndDestroyAsteroid(name: peerName!)
-        } else {
+        case .MOVE:
             
             let dx = messageReceived?["dx"] as? Double
             let dy = messageReceived?["dy"] as? Double
@@ -99,7 +107,9 @@ extension GameViewController: MPCManagerDelegate {
             
             //TODO: chamar aqui a função que move a mira do player 2
             overlay.searchAndMovePlayer(name: peerName!, direction: vector)
-            
+        case .RECHARGE:
+            overlay.searchAndRecharge(name: peerName!)
+            break
         }
         
     }

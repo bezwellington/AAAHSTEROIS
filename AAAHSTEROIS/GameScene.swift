@@ -29,7 +29,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         setupBorder()
         addAim()
-        iphonePlayer = setupPlayers()
+        iphonePlayer = setupIphonePlayers()
     }
     
     func setupBorder(){
@@ -44,7 +44,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return CGPoint(x:pos.x,y:1080-pos.y)
     }
     
-    func setupPlayers() -> [IphonePlayer] {
+    func setupIphonePlayers() -> [IphonePlayer] {
         //coordenada da mira inicialmente no centro pra todos os players, futuramente pode ser mudado para um cálculo de coordenada que leva em conta a quantidade de players conectados
         
         print("\n will start setup players \n")
@@ -108,8 +108,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 break
             }
         }
-        
-        
+    }
+    
+    //chamada quando recebe mensagem do controller para recarregar laser
+    func searchAndRecharge(name: String) {
+        for i in 0...(iphonePlayer.count - 1) {
+            if iphonePlayer[i].name == name {
+                
+                iphonePlayer[i].recharge()
+            }
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
