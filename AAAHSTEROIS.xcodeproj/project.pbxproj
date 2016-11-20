@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2E031CC41DD283EF002BD6E2 /* GameViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E031CC31DD283EF002BD6E2 /* GameViewControllerExtension.swift */; };
 		2E6E3DCC1DD2232F00C4298F /* MPCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6E3DCB1DD2232F00C4298F /* MPCManager.swift */; };
-		2E6E3DCE1DD22F7C00C4298F /* VerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6E3DCD1DD22F7C00C4298F /* VerificationCodeView.swift */; };
 		2EABADCF1DE0E5EA004F0CF8 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EABADCE1DE0E5EA004F0CF8 /* Player.swift */; };
 		2EABADD21DE12184004F0CF8 /* CGVectorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EABADD11DE12184004F0CF8 /* CGVectorExtension.swift */; };
 		402E0A851DD17009003C7969 /* InitialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E0A841DD17009003C7969 /* InitialScene.swift */; };
@@ -25,6 +24,7 @@
 		40CC619E1DD118BD00178B7A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC619D1DD118BD00178B7A /* GameViewController.swift */; };
 		40CC61A11DD118BD00178B7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40CC619F1DD118BD00178B7A /* Main.storyboard */; };
 		40CC61A31DD118BD00178B7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40CC61A21DD118BD00178B7A /* Assets.xcassets */; };
+		EF44D6251DE21F5E00DCDC42 /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF44D6241DE21F5E00DCDC42 /* VerificationViewController.swift */; };
 		EF8FA1951DD7AE7100CB350F /* fire.scnp in Resources */ = {isa = PBXBuildFile; fileRef = EF8FA1941DD7AE7100CB350F /* fire.scnp */; };
 		EFB374E01DD8FF2200B9A6D0 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB374DF1DD8FF2200B9A6D0 /* InitialViewController.swift */; };
 		EFB374E21DD8FFF600B9A6D0 /* HussarBdSuprObl.otf in Resources */ = {isa = PBXBuildFile; fileRef = EFB374E11DD8FFF600B9A6D0 /* HussarBdSuprObl.otf */; };
@@ -38,7 +38,6 @@
 /* Begin PBXFileReference section */
 		2E031CC31DD283EF002BD6E2 /* GameViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewControllerExtension.swift; sourceTree = "<group>"; };
 		2E6E3DCB1DD2232F00C4298F /* MPCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
-		2E6E3DCD1DD22F7C00C4298F /* VerificationCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationCodeView.swift; sourceTree = "<group>"; };
 		2EABADCE1DE0E5EA004F0CF8 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		2EABADD11DE12184004F0CF8 /* CGVectorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGVectorExtension.swift; sourceTree = "<group>"; };
 		402E0A841DD17009003C7969 /* InitialScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialScene.swift; sourceTree = "<group>"; };
@@ -56,6 +55,7 @@
 		40CC61A01DD118BD00178B7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		40CC61A21DD118BD00178B7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40CC61A41DD118BD00178B7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF44D6241DE21F5E00DCDC42 /* VerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationViewController.swift; sourceTree = "<group>"; };
 		EF8FA1941DD7AE7100CB350F /* fire.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = fire.scnp; sourceTree = "<group>"; };
 		EFB374DF1DD8FF2200B9A6D0 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		EFB374E11DD8FFF600B9A6D0 /* HussarBdSuprObl.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HussarBdSuprObl.otf; sourceTree = "<group>"; };
@@ -102,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				40CC619D1DD118BD00178B7A /* GameViewController.swift */,
+				EF44D6241DE21F5E00DCDC42 /* VerificationViewController.swift */,
 				EFB374DF1DD8FF2200B9A6D0 /* InitialViewController.swift */,
 				2E031CC31DD283EF002BD6E2 /* GameViewControllerExtension.swift */,
 			);
@@ -112,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				40CC619F1DD118BD00178B7A /* Main.storyboard */,
-				2E6E3DCD1DD22F7C00C4298F /* VerificationCodeView.swift */,
 				EFF0362D1DD27C9600EF97DD /* Game3DView.swift */,
 			);
 			name = View;
@@ -276,8 +276,8 @@
 				2E031CC41DD283EF002BD6E2 /* GameViewControllerExtension.swift in Sources */,
 				402E0A8B1DD1705D003C7969 /* FinalResultScene.swift in Sources */,
 				405482251DD9216C003F56DC /* EarthClass.swift in Sources */,
+				EF44D6251DE21F5E00DCDC42 /* VerificationViewController.swift in Sources */,
 				40CC619C1DD118BD00178B7A /* GameScene.swift in Sources */,
-				2E6E3DCE1DD22F7C00C4298F /* VerificationCodeView.swift in Sources */,
 				402E0A851DD17009003C7969 /* InitialScene.swift in Sources */,
 				40CC619E1DD118BD00178B7A /* GameViewController.swift in Sources */,
 				40C8F71B1DD8D4D9009B4E24 /* AsteroidClass.swift in Sources */,

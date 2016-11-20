@@ -77,6 +77,6 @@ class IphonePlayer: Player {
     func move(direction: CGVector) {
         self.laser.physicsBody?.velocity = direction
     }
-    c
+    
 }
 

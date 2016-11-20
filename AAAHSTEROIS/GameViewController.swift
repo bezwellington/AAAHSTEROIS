@@ -18,22 +18,16 @@ class GameViewController: UIViewController {
   @IBOutlet weak var game3DView: Game3DView!
   
   let appDelegate = UIApplication.shared.delegate as! AppDelegate
-  var codeView: VerificationCodeView!
   let deadlineTime = DispatchTime.now()
   var overlay = GameScene()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    //comentar essas duas linhas quando quiser pular a conexão
-    codeView = VerificationCodeView(frame: self.view.bounds, verificationCode: "1234")
-    self.view.addSubview(codeView)
-    
+
     appDelegate.mpcManager.delegate = self
     appDelegate.mpcManager.enableServices(enable: true)
     
-    //comentar essa linha quando quiser testar conexão com 2 players
-    //loadGameScene()
+    loadGameScene()
   }
 
   func loadGameScene(){
