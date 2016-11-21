@@ -56,8 +56,8 @@ class GameViewController: UIViewController {
       //Se o TrackPad for pressionado
       if item.type == .select {
         if overlay.count > 0{
-        overlay.count -= 1
-          
+            overlay.count -= 1
+            overlay.runHitTest()
         //TODO: MANDAR COR REAL DA MIRA
         overlay.aimClass.changeColor(color: "verde", number: overlay.count)
         print("Count = \(overlay.count)")

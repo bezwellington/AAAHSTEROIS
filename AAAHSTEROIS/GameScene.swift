@@ -93,18 +93,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 iphonePlayer[i].shoot()
                 
+                print("IPHONE BEFORE HIT")
                 //MARK: descomentar quando existir a classe do asteroide e for possível checar o color matching
-//                let pos = iphonePlayer[i].laser.position
-//                
-//                let hitResuts = game3DView.hitTest(pos, options: nil)
-//                print(hitResuts.count)
-//                for t in hitResuts{
-//                    if t.node.name == "asteroid" {
-//                        //TODO: CHECAR O COLOR MATCHING
-//                        print("encostei, viadao")
-//                        t.node.removeFromParentNode()
-//                    }
-//                }
+                let pos = iphonePlayer[i].laser.position
+                
+                let hitResuts = game3DView.hitTest(pos, options: nil)
+                print(hitResuts.count)
+                for t in hitResuts{
+                    if t.node.name == "asteroid" {
+                        //TODO: CHECAR O COLOR MATCHING
+                        print("encostei, viadao IPHONE")
+                        t.node.removeFromParentNode()
+                    }
+                }
                 break
             }
         }
@@ -128,22 +129,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             print(touchLocation)
             touchPositionX = touchLocation.x
             touchPositionY = touchLocation.y
-            
-            print(aimClass.aim.position)
-            var pos = getViewPosition(pos: aimClass.aim.position)
-            //pos = game3DView.convert(pos, from: self.view!)
-            //var convert3DGame = game3DView.convert(pos, from: self.scene!.view)
-            //print(convert3DGame)
-            let hitResuts = game3DView.hitTest(pos, options: nil)
-            print(hitResuts.count)
-            for t in hitResuts{
-                if t.node.name == "asteroid" {
-                    print("encostei, viadao")
-                    t.node.removeFromParentNode()
-                }
+        }
+    }
+    
+    func runHitTest(){
+        let pos = getViewPosition(pos: aimClass.aim.position)
+        //pos = game3DView.convert(pos, from: self.view!)
+        //var convert3DGame = game3DView.convert(pos, from: self.scene!.view)
+        //print(convert3DGame)
+        let hitResuts = game3DView.hitTest(pos, options: nil)
+        print(hitResuts.count)
+        for t in hitResuts{
+            if t.node.name == "asteroid" {
+                print("encostei, viadao")
+                t.node.removeFromParentNode()
             }
         }
-        
+
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

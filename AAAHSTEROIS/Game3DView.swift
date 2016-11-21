@@ -9,12 +9,12 @@
 import UIKit
 import SceneKit
 
-class Game3DView: SCNView, SCNPhysicsContactDelegate {
+class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
   
     let earthNode = SCNNode()
     let possibleAsteroidColor:[UIColor] = [UIColor.cyan, UIColor.yellow]
     let asteroidCategory: Int = 1
-    let earthCategory: Int = 1
+    let earthCategory: Int = 2
   
     var asteroidFrequency = 3.0
     var currentAsteroidRound = 0
@@ -22,11 +22,15 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
 
   
   func loadGame(){
+    self.delegate = self
     sceneSetup()
     earthSetup()
     createAsteroidsTimer()
   }
-  
+    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        print(scene?.rootNode.childNodes.count)
+    }
   
   func createAsteroidsTimer() {
     
@@ -61,7 +65,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
     
     asteroidNode.name = "asteroid"
     asteroidNode.physicsBody = SCNPhysicsBody.kinematic()
-    asteroidNode.physicsBody?.contactTestBitMask = asteroidCategory
+    asteroidNode.physicsBody?.contactTestBitMask = earthCategory
     
     let randomX = Float(arc4random_uniform(10))
 
@@ -167,6 +171,9 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
   }
     
     func physicsWorld(_ world: SCNPhysicsWorld,didBegin contact: SCNPhysicsContact) {
+        if (contact.nodeA == nil || contact.nodeB == nil){
+            return
+        }
         if (contact.nodeA.name == "earth" || contact.nodeA.name == "asteroid") && (contact.nodeB.name == "earth" || contact.nodeB.name == "asteroid") {
             
             //asteroidsTimer.invalidate()
@@ -181,9 +188,13 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
             self.scene?.rootNode.addChildNode(emitterNode)
 
             if contact.nodeA.name == "asteroid"{
-             contact.nodeA.removeFromParentNode()
-            } else{
-                contact.nodeB.removeFromParentNode()
+             remove(node: contact.nodeA)
+                //contact.nodeA.removeFromParentNode()
+                print("REMOVEU A")
+            } else if contact.nodeB.name == "asteroid"{
+                remove(node: contact.nodeB)
+                //contact.nodeB.removeFromParentNode()
+                print("REMOVEU B")
             }
             
 //            for node in (self.scene?.rootNode.childNodes)!{
@@ -192,6 +203,13 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate {
 //                }
 //            }
 
+        }
+    }
+    
+    func remove(node : SCNNode){
+        DispatchQueue.main.async {
+            node.removeFromParentNode()
+            //self.performSegue(withIdentifier: "goToGameVC", sender: self)
         }
     }
 
