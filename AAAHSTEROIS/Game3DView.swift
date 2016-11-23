@@ -178,15 +178,20 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
             
             //asteroidsTimer.invalidate()
             
-            let emitterNode = SCNNode()
-            emitterNode.position = contact.contactPoint
-            emitterNode.name = "explosion"
+            let miniExplosionEmitterNode = SCNNode()
+            miniExplosionEmitterNode.position = contact.contactPoint
+            miniExplosionEmitterNode.name = "explosion"
+//            let miniExplosionTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(removeMiniExplosion as (miniExplosionNode:miniExplosionEmitterNode)), userInfo: nil, repeats: false)
+        
+//            
+            let miniExplosionParticles = SCNParticleSystem(named: "miniExplosion.scnp", inDirectory: nil)!
+
+            miniExplosionEmitterNode.addParticleSystem(miniExplosionParticles)
+            self.scene?.rootNode.addChildNode(miniExplosionEmitterNode)
             
-            let explosionParticles = SCNParticleSystem(named: "miniExplosion.scnp", inDirectory: nil)!
-
-            emitterNode.addParticleSystem(explosionParticles)
-            self.scene?.rootNode.addChildNode(emitterNode)
-
+            
+    
+            
             if contact.nodeA.name == "asteroid"{
              remove(node: contact.nodeA)
                 //contact.nodeA.removeFromParentNode()
@@ -197,6 +202,13 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
                 print("REMOVEU B")
             }
             
+           miniExplosionEmitterNode.runAction(SCNAction.wait(duration: 1.0)){
+            miniExplosionEmitterNode.removeFromParentNode()
+           }
+            
+            
+            
+            
 //            for node in (self.scene?.rootNode.childNodes)!{
 //                if node.name != "explosion"{
 //                node.removeFromParentNode()
@@ -204,6 +216,11 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
 //            }
 
         }
+    }
+    
+    func removeMiniExplosion(miniExplosionNode: SCNNode){
+        
+        miniExplosionNode.removeFromParentNode()
     }
     
     func remove(node : SCNNode){
