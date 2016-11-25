@@ -26,8 +26,13 @@ class VerificationViewController: UIViewController, MPCManagerDelegate {
         super.viewDidLoad()
 
       setCode()
-        appDelegate.mpcManager.delegate = self
-        appDelegate.mpcManager.enableServices(enable: true)
+        
+        //MARK: comentar linhas abaixo pra desabilitar conexão
+        //appDelegate.mpcManager.delegate = self
+        //appDelegate.mpcManager.enableServices(enable: true)
+        
+        //MARK: descomentar linha abaixo pra desabilitar conexão
+        loadGameVC()
         
     }
 
@@ -66,11 +71,14 @@ class VerificationViewController: UIViewController, MPCManagerDelegate {
         
         print("\n\n start session with \(peerID.displayName)\n\n")
         
-        DispatchQueue.main.async {
-        self.performSegue(withIdentifier: "goToGameVC", sender: self)
-        }
+        loadGameVC()
     }
     
+    func loadGameVC() {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "goToGameVC", sender: self)
+        }
+    }
     func handleMessageReceived (messageReceived: Dictionary<String, Any>?){ }
 
 }

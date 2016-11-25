@@ -29,7 +29,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         setupBorder()
         addAim()
-        iphonePlayer = setupIphonePlayers()
+        
+        //MARK: comentar linha abaixo pra desabilitar conexão
+        //iphonePlayer = setupIphonePlayers()
     }
     
     func setupBorder(){
