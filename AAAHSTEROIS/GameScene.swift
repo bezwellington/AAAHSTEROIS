@@ -18,7 +18,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     var aimClass = AimClass()
     var game3DView: Game3DView!
-    var count = 8
     
     var iphonePlayer: [IphonePlayer]!
     

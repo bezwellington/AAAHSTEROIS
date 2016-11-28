@@ -17,10 +17,11 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var game3DView: Game3DView!
     
-    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let deadlineTime = DispatchTime.now()
     var overlay = GameScene()
+    var numberOfAcceleration = 0
+    var energyAim = 8
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,20 +60,13 @@ class GameViewController: UIViewController {
         for item in presses {
             //Se o TrackPad for pressionado
             if item.type == .playPause{
-                if overlay.count > 0{
-                    overlay.count -= 1
+                if self.energyAim > 0{
+                    self.energyAim -= 1
                     overlay.runHitTest()
-                    //TODO: MANDAR COR REAL DA MIRA
-                    overlay.aimClass.changeColor(color: "verde", number: overlay.count)
-                    print("Count = \(overlay.count)")
+                    //TODO: TROCA A COR DA MIRA
+                    overlay.aimClass.changeColor(color: "verde", number: self.energyAim)
                 }
             }
-        }
-        // Se o número de munição for 0
-        if(overlay.count == 0){
-            //TODO: BOTAR "RELOAD" ESCRITO PISCANDO NA MIRA
-            overlay.aimClass.changeColor(color: "verde", number: 0)
-            print("voce precisa recarregar sua arma")
         }
     }
     
@@ -85,15 +79,13 @@ class GameViewController: UIViewController {
     func atualiza() {
         GCController.controllers().first?.motion?.valueChangedHandler = { motion in
             let realAcceleration = motion.userAcceleration
-            if (realAcceleration.x > 5 || realAcceleration.y > 5 || realAcceleration.z > 5)
+            if (realAcceleration.x > 4 || realAcceleration.y > 4 || realAcceleration.z > 4)
             {
-                print("Arma recarregada com sucesso!")
-                //print ("Aceleração real! \(realAcceleration)")
-                //print ("Aceleração x! \(realAcceleration.x)")
-                //print ("Aceleração y! \(realAcceleration.y)")
-                //print ("Aceleração z! \(realAcceleration.z)")
-                self.reloadWeapon()
+                // Variável que conta o número de aceleração por Shake
+                self.numberOfAcceleration += 1
+                self.checkNumberOfAcceleration(numberOfAcceleration: self.numberOfAcceleration)
             }
+            
         }
         
     }
@@ -115,9 +107,21 @@ class GameViewController: UIViewController {
         performSegue(withIdentifier: "goToGameOverVC", sender: self)
     }
     
+    // Função que verifica a qtd de aceleração por Shake
+    func checkNumberOfAcceleration(numberOfAcceleration: Int){
+    
+        if self.numberOfAcceleration >= 5{
+            print("Arma recarregada com sucesso!")
+            self.reloadWeapon()
+            self.numberOfAcceleration = 0
+        }
+    
+    }
+    
     // Função que recarrega arma
     func reloadWeapon(){
-        self.overlay.count += 1
+        self.energyAim = 8
+        overlay.aimClass.changeColor(color: "verde", number: self.energyAim)
     }
     
 }

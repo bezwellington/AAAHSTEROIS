@@ -20,7 +20,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
     var asteroidsTimer = Timer()
     
     dynamic var gameOver = false
-    
+
     func loadGame(){
         self.delegate = self
         sceneSetup()
@@ -29,7 +29,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        print(scene?.rootNode.childNodes.count)
+        //print(scene?.rootNode.childNodes.count)
     }
     
     func createAsteroids() {
