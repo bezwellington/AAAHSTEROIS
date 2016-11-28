@@ -47,15 +47,20 @@ class EarthClass {
         earthNode.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 1, y: 1, z: 1, duration: 70)))
     }
     
-    func wasHit() {
+    func wasHit() -> Bool{
         
         if self.hitCount < 10 {
         self.hitCount += 1
         self.earthNode.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "terra\(hitCount)")
-        } else{
-            //TODO: Levar para Game Over
+        return false
+        } else if self.hitCount == 10{
             print("GAME OVER")
+            self.hitCount += 1
+            //MARK: Para desativar game over, comentar linha abaixo
+            return true
+            
         }
+        return false
     }
     
     

@@ -19,6 +19,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
     var currentAsteroidRound = 0
     var asteroidsTimer = Timer()
     
+    dynamic var gameOver = false
     
     func loadGame(){
         self.delegate = self
@@ -127,7 +128,8 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
             miniExplosionEmitterNode.addParticleSystem(miniExplosionParticles)
             self.scene?.rootNode.addChildNode(miniExplosionEmitterNode)
             
-            miniExplosionEmitterNode.runAction(SCNAction.wait(duration: 1.0)){
+            miniExplosionEmitterNode.runAction(SCNAction.wait(duration: 0.5)){
+                print("REMOVEU O NODE: \(miniExplosionEmitterNode)")
                 miniExplosionEmitterNode.removeFromParentNode()
             }
             
@@ -142,7 +144,11 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
                 print("REMOVEU B")
             }
             
-            earth.wasHit()
+            if earth.wasHit() {
+                
+                self.gameOver = true
+                print("__ TRUE GAME OVER")
+            }
             
             
             //            for node in (self.scene?.rootNode.childNodes)!{

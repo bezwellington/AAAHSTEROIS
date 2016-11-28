@@ -196,6 +196,7 @@
                     </view>
                     <connections>
                         <outlet property="game3DView" destination="LJQ-xu-blo" id="0Qs-MU-GCA"/>
+                        <segue destination="SzR-KR-lhc" kind="show" identifier="goToGameOverVC" id="Ish-MA-EGj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFW-Nd-Df7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -253,7 +254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SAU-PI-9S6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="573" y="1566"/>
+            <point key="canvasLocation" x="1290" y="1806"/>
         </scene>
     </scenes>
     <resources>
