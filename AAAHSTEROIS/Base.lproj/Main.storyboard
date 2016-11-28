@@ -202,10 +202,10 @@
             </objects>
             <point key="canvasLocation" x="525" y="99"/>
         </scene>
-        <!--View Controller-->
+        <!--Game Over View Controller-->
         <scene sceneID="7pC-CO-qTy">
             <objects>
-                <viewController id="SzR-KR-lhc" sceneMemberID="viewController">
+                <viewController id="SzR-KR-lhc" customClass="GameOverViewController" customModule="AAAHSTEROIS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D1P-IM-Eoa"/>
                         <viewControllerLayoutGuide type="bottom" id="1Th-vf-Z1g"/>

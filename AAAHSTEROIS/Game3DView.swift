@@ -12,6 +12,7 @@ import SceneKit
 class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
     
     let possibleAsteroidColor:[UIColor] = [UIColor.cyan, UIColor.yellow]
+    let earth = EarthClass()
     let earthCategory: Int = 2
     
     var asteroidFrequency = 3.0
@@ -74,7 +75,6 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
     
     func earthSetup(){
         
-        let earth = EarthClass()
         self.scene?.rootNode.addChildNode(earth.earthNode)
     }
     
@@ -142,9 +142,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
                 print("REMOVEU B")
             }
             
-            
-            
-            
+            earth.wasHit()
             
             
             //            for node in (self.scene?.rootNode.childNodes)!{

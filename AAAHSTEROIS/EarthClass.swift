@@ -15,6 +15,7 @@ class EarthClass {
     let earthGeometry = SCNSphere(radius: 12)
     let earthNode = SCNNode()
     let earthCategory: Int = 2
+    var hitCount = 0
     
     init(){
         
@@ -23,7 +24,7 @@ class EarthClass {
         earthNode.geometry = earthGeometry
         earthNode.position = SCNVector3Make(0, -14, -20)
         earthNode.geometry?.firstMaterial?.specular.contents = #imageLiteral(resourceName: "specularMap")
-        earthNode.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "colorMap")
+        earthNode.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "terra0")
         earthNode.name = "earth"
         earthNode.physicsBody = SCNPhysicsBody.kinematic()
         earthNode.physicsBody?.categoryBitMask = earthCategory
@@ -44,6 +45,17 @@ class EarthClass {
     func rotate(){
         
         earthNode.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 1, y: 1, z: 1, duration: 70)))
+    }
+    
+    func wasHit() {
+        
+        if self.hitCount < 10 {
+        self.hitCount += 1
+        self.earthNode.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "terra\(hitCount)")
+        } else{
+            //TODO: Levar para Game Over
+            print("GAME OVER")
+        }
     }
     
     
