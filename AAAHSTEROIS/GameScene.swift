@@ -161,8 +161,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 let deltaY = touchPositionY - location.y
                 
                 // Calculate the new Sprite position
-                var x = aimClass.aim.position.x - deltaX
-                var y = aimClass.aim.position.y - deltaY
+                
+                // Control Remote in the vertical
+                //var x = aimClass.aim.position.x - deltaX
+                //var y = aimClass.aim.position.y - deltaY
+                
+                // Control Remote in the horizontal
+                var x = aimClass.aim.position.x + deltaY
+                var y = aimClass.aim.position.y - deltaX
                 
                 // Check if the sprite will leave the screen
                 if x < 0 {

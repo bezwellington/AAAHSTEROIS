@@ -58,7 +58,7 @@ class GameViewController: UIViewController {
         
         for item in presses {
             //Se o TrackPad for pressionado
-            if item.type == .select {
+            if item.type == .playPause{
                 if overlay.count > 0{
                     overlay.count -= 1
                     overlay.runHitTest()
