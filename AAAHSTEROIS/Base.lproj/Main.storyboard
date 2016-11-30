@@ -41,7 +41,7 @@
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" image="playButton"/>
                                 <connections>
-                                    <segue destination="iUM-PU-hlh" kind="show" id="Fao-Ge-0om"/>
+                                    <action selector="pressedCreateAMatch:" destination="MKD-2U-hBz" eventType="primaryActionTriggered" id="ZoE-VT-Z0g"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a Match" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVd-Xy-NMw">
@@ -65,6 +65,7 @@
                     </view>
                     <connections>
                         <outlet property="createMatchButton" destination="OdB-du-jb9" id="daL-Ji-PDl"/>
+                        <segue destination="iUM-PU-hlh" kind="show" identifier="goToCreateAMatch" id="btH-d5-nSI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="85o-wg-cRL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -97,11 +98,9 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="MjV-oc-2Xu">
-                                <frame key="frameInset" minX="724" minY="462" width="473" height="164"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="MjV-oc-2Xu">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJZ-zt-OyT">
-                                        <frame key="frameInset" width="110" height="164"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJZ-zt-OyT">
                                         <color key="backgroundColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="164" id="OmW-6g-JJc"/>
@@ -111,8 +110,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTp-Ij-VgY">
-                                        <frame key="frameInset" minX="121" width="110" height="164"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTp-Ij-VgY">
                                         <color key="backgroundColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="crV-un-vzW"/>
@@ -122,8 +120,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STs-23-nH7">
-                                        <frame key="frameInset" minX="242" width="110" height="164"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STs-23-nH7">
                                         <color key="backgroundColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="KvZ-pp-LYB"/>
@@ -133,8 +130,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SrW-1z-Ur2">
-                                        <frame key="frameInset" minX="363" width="110" height="164"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SrW-1z-Ur2">
                                         <color key="backgroundColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="cDe-Xr-VJ7"/>
@@ -148,6 +144,7 @@
                             </stackView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="MjV-oc-2Xu" firstAttribute="top" secondItem="XEv-iR-x0o" secondAttribute="bottom" constant="83" id="9OR-Yn-A1U"/>
                             <constraint firstItem="NBf-E8-tbq" firstAttribute="leading" secondItem="6Jb-39-gjw" secondAttribute="leading" id="Idd-RP-Tzd"/>
                             <constraint firstItem="XEv-iR-x0o" firstAttribute="centerX" secondItem="6Jb-39-gjw" secondAttribute="centerX" id="Pzf-wj-cjv"/>
                             <constraint firstItem="NBf-E8-tbq" firstAttribute="top" secondItem="T14-DZ-FM6" secondAttribute="bottom" id="Q2B-rt-68r"/>
@@ -162,6 +159,7 @@
                         <outlet property="number1" destination="QTp-Ij-VgY" id="QpL-RQ-ibA"/>
                         <outlet property="number2" destination="STs-23-nH7" id="ggo-B5-rqg"/>
                         <outlet property="number3" destination="SrW-1z-Ur2" id="AtG-iv-ngD"/>
+                        <segue destination="499-42-d0g" kind="show" identifier="goToGameVC" id="SUr-Qx-5b6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vR6-IM-7au" userLabel="First Responder" sceneMemberID="firstResponder"/>

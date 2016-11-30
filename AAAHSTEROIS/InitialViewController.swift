@@ -23,5 +23,9 @@ class InitialViewController: UIViewController {
 
   }
     
+    @IBAction func pressedCreateAMatch(_ sender: AnyObject) {
+        
+        performSegue(withIdentifier: "goToCreateAMatch", sender: self)
+    }
 
 }
