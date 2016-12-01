@@ -110,28 +110,24 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
     }
     
     func physicsWorld(_ world: SCNPhysicsWorld,didBegin contact: SCNPhysicsContact) {
-        if (contact.nodeA == nil || contact.nodeB == nil){
-            return
-        }
+
         if (contact.nodeA.name == "earth" || contact.nodeA.name == "asteroid") && (contact.nodeB.name == "earth" || contact.nodeB.name == "asteroid") {
             
             //asteroidsTimer.invalidate()
             
-            let miniExplosionEmitterNode = SCNNode()
-            miniExplosionEmitterNode.position = contact.contactPoint
-            miniExplosionEmitterNode.name = "explosion"
-            //            let miniExplosionTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(removeMiniExplosion as (miniExplosionNode:miniExplosionEmitterNode)), userInfo: nil, repeats: false)
-            
-            //
-            let miniExplosionParticles = SCNParticleSystem(named: "miniExplosion.scnp", inDirectory: nil)!
-            
-            miniExplosionEmitterNode.addParticleSystem(miniExplosionParticles)
-            self.scene?.rootNode.addChildNode(miniExplosionEmitterNode)
-            
-            miniExplosionEmitterNode.runAction(SCNAction.wait(duration: 0.5)){
-                print("REMOVEU O NODE: \(miniExplosionEmitterNode)")
-                miniExplosionEmitterNode.removeFromParentNode()
-            }
+//            let miniExplosionEmitterNode = SCNNode()
+//            miniExplosionEmitterNode.position = contact.contactPoint
+//            miniExplosionEmitterNode.name = "explosion"
+//            
+//            let miniExplosionParticles = SCNParticleSystem(named: "miniExplosion.scnp", inDirectory: nil)!
+//            
+//            miniExplosionEmitterNode.addParticleSystem(miniExplosionParticles)
+//            self.scene?.rootNode.addChildNode(miniExplosionEmitterNode)
+//            
+//            miniExplosionEmitterNode.runAction(SCNAction.wait(duration: 0.5)){
+//                print("REMOVEU O NODE: \(miniExplosionEmitterNode)")
+//                miniExplosionEmitterNode.removeFromParentNode()
+//            }
             
             
             if contact.nodeA.name == "asteroid"{

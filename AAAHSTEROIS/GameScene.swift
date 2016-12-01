@@ -30,7 +30,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addAim()
         
         //MARK: comentar linha abaixo pra desabilitar conexão
-        //iphonePlayer = setupIphonePlayers()
+        iphonePlayer = setupIphonePlayers()
     }
     
     func setupBorder(){
@@ -46,6 +46,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func setupIphonePlayers() -> [IphonePlayer] {
+        
         //coordenada da mira inicialmente no centro pra todos os players, futuramente pode ser mudado para um cálculo de coordenada que leva em conta a quantidade de players conectados
         
         print("\n will start setup players \n")
@@ -96,8 +97,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 print("IPHONE BEFORE HIT")
                 //MARK: descomentar quando existir a classe do asteroide e for possível checar o color matching
-                let pos = iphonePlayer[i].laser.position
-                
+                var pos = iphonePlayer[i].laser.position
+                pos = getViewPosition(pos: pos)
                 let hitResuts = game3DView.hitTest(pos, options: nil)
                 print(hitResuts.count)
                 for t in hitResuts{
@@ -135,9 +136,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func runHitTest(){
         let pos = getViewPosition(pos: aimClass.aim.position)
-        //pos = game3DView.convert(pos, from: self.view!)
-        //var convert3DGame = game3DView.convert(pos, from: self.scene!.view)
-        //print(convert3DGame)
         let hitResuts = game3DView.hitTest(pos, options: nil)
         print(hitResuts.count)
         for t in hitResuts{

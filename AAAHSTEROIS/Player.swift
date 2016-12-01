@@ -24,7 +24,7 @@ class Player {
     init(coordinate: CGPoint, color: String, name: String, number: Int){
         
         self.energy = 8
-        self.speed = CGFloat(60.0)
+        self.speed = CGFloat(70.0)
         self.coordinate = coordinate
         self.color = color
         self.name = name
@@ -61,7 +61,7 @@ class Player {
     }
     
     func recharge() {
-        energy = energy + 4
+        energy = energy + 8
         if energy > 8 { energy = 8 }
         
         let texture = "mira\(color!)\(energy!)"

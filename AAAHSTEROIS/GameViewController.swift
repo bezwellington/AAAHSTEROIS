@@ -62,6 +62,7 @@ class GameViewController: UIViewController {
             if item.type == .playPause{
                 if self.energyAim > 0{
                     self.energyAim -= 1
+                    
                     overlay.runHitTest()
                     //TODO: TROCA A COR DA MIRA
                     overlay.aimClass.changeColor(color: "verde", number: self.energyAim)
