@@ -30,7 +30,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addAim()
         
         //MARK: comentar linha abaixo pra desabilitar conexão
-        iphonePlayer = setupIphonePlayers()
+        //iphonePlayer = setupIphonePlayers()
     }
     
     func setupBorder(){

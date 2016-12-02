@@ -115,19 +115,25 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
             
             //asteroidsTimer.invalidate()
             
-//            let miniExplosionEmitterNode = SCNNode()
-//            miniExplosionEmitterNode.position = contact.contactPoint
-//            miniExplosionEmitterNode.name = "explosion"
-//            
-//            let miniExplosionParticles = SCNParticleSystem(named: "miniExplosion.scnp", inDirectory: nil)!
-//            
-//            miniExplosionEmitterNode.addParticleSystem(miniExplosionParticles)
-//            self.scene?.rootNode.addChildNode(miniExplosionEmitterNode)
-//            
-//            miniExplosionEmitterNode.runAction(SCNAction.wait(duration: 0.5)){
-//                print("REMOVEU O NODE: \(miniExplosionEmitterNode)")
-//                miniExplosionEmitterNode.removeFromParentNode()
-//            }
+            let miniExplosionEmitterNode = SCNNode()
+            miniExplosionEmitterNode.position = contact.contactPoint
+            miniExplosionEmitterNode.name = "explosion"
+            
+            let miniExplosionParticles = SCNParticleSystem(named: "miniExplosion.scnp", inDirectory: nil)!
+            
+            miniExplosionEmitterNode.addParticleSystem(miniExplosionParticles)
+            DispatchQueue.main.async {
+                self.scene?.rootNode.addChildNode(miniExplosionEmitterNode)
+            }
+            
+            
+            miniExplosionEmitterNode.runAction(SCNAction.wait(duration: 0.5)){
+                print("REMOVEU O NODE: \(miniExplosionEmitterNode)")
+                DispatchQueue.main.async {
+                    miniExplosionEmitterNode.removeFromParentNode()
+                }
+                
+            }
             
             
             if contact.nodeA.name == "asteroid"{
