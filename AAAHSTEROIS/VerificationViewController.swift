@@ -25,14 +25,14 @@ class VerificationViewController: UIViewController, MPCManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-      setCode()
+      //setCode()
         
         //MARK: comentar linhas abaixo pra desabilitar conexão
-        appDelegate.mpcManager.delegate = self
-        appDelegate.mpcManager.enableServices(enable: true)
+       // appDelegate.mpcManager.delegate = self
+       // appDelegate.mpcManager.enableServices(enable: true)
         
         //MARK: descomentar linha abaixo pra desabilitar conexão
-        //loadGameVC()
+        loadGameVC()
         
     }
 
