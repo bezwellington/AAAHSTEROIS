@@ -159,6 +159,7 @@ extension MPCManager: MCSessionDelegate {
             print("\n\nConnecting to session: \(session)\n\n")
         default:
             print("\n\nDid not connect to session: \(session)\n\n")
+            self.delegate?.lostPeer()
         }
     }
     

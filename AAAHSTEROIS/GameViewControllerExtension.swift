@@ -17,11 +17,12 @@ extension GameViewController: MPCManagerDelegate {
     
     func foundPeer(peer: MCPeerID) {
         print("Found Peer!")
+        
     }
     
     func lostPeer() {
         print("Lost Peer!")
-        
+        overlay.view?.isPaused = true
     }
     
     //não é usado na apple tv
@@ -69,6 +70,7 @@ extension GameViewController: MPCManagerDelegate {
     func connectedWithPeer(peerID: MCPeerID) {
         //TODO: tratar a queda de conexão durante o jogo e a volta da conexão
         //se a conexão cai durante o jogo, não é necessário dar load na gameScene novamente
+        //overlay.view?.isPaused = false
     }
     
     func handleMessageReceived (messageReceived: Dictionary<String, Any>?){
