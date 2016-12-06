@@ -30,7 +30,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addAim()
         
         //MARK: comentar linha abaixo pra desabilitar conexão
-        //iphonePlayer = setupIphonePlayers()
+        iphonePlayer = setupIphonePlayers()
     }
     
     func setupBorder(){
@@ -95,7 +95,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 iphonePlayer[i].shoot()
                 
-                print("IPHONE BEFORE HIT")
                 //MARK: descomentar quando existir a classe do asteroide e for possível checar o color matching
                 var pos = iphonePlayer[i].laser.position
                 pos = getViewPosition(pos: pos)
@@ -197,7 +196,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         aimClass.aim.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
         addChild(aimClass.aim)
     }
-
     
     
 }

@@ -140,6 +140,8 @@ extension MPCManager: MCNearbyServiceBrowserDelegate {
             }
         }
         
+        
+        print("PERDEU O PEER")
         delegate?.lostPeer()
     }
     

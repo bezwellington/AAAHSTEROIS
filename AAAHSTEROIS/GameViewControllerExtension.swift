@@ -22,7 +22,7 @@ extension GameViewController: MPCManagerDelegate {
     
     func lostPeer() {
         print("Lost Peer!")
-        overlay.view?.isPaused = true
+        appDelegate.mpcManager.enableServices(enable: true)
     }
     
     //não é usado na apple tv
@@ -42,6 +42,7 @@ extension GameViewController: MPCManagerDelegate {
                 if codeTyped == codeReceived {
                     self.appDelegate.mpcManager.invitationHandler(true, self.appDelegate.mpcManager.session)
                     print("Started session with \(fromPeer)")
+                        self.appDelegate.mpcManager.enableServices(enable: false)
                 }
                 else {
                     //TODO: implementar um erro decente para código errado

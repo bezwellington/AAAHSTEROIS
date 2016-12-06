@@ -20,6 +20,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
     var asteroidsTimer = Timer()
     
     dynamic var gameOver = false
+    
 
     func loadGame(){
         self.delegate = self
