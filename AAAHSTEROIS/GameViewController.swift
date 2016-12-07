@@ -80,7 +80,7 @@ class GameViewController: UIViewController {
     func atualiza() {
         GCController.controllers().first?.motion?.valueChangedHandler = { motion in
             let realAcceleration = motion.userAcceleration
-            if (realAcceleration.x > 4 || realAcceleration.y > 4 || realAcceleration.z > 4)
+            if (realAcceleration.x > 2 || realAcceleration.y > 2 || realAcceleration.z > 2)
             {
                 // Variável que conta o número de aceleração por Shake
                 self.numberOfAcceleration += 1
