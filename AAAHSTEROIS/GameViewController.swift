@@ -48,6 +48,11 @@ class GameViewController: UIViewController {
         //Função que começa a pegar a aceleração do Remote Control
         startControllerAcceleration()
         
+        // Som do início do jogo
+        overlay.run(SKAction.repeatForever(overlay.gamePlaySound))
+        
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,6 +65,8 @@ class GameViewController: UIViewController {
         for item in presses {
             //Se o TrackPad for pressionado
             if item.type == .playPause{
+                // Som do tiro do laser
+                overlay.runAction(action: overlay.laserFireSound)
                 if self.energyAim > 0{
                     self.energyAim -= 1
                     
@@ -113,6 +120,8 @@ class GameViewController: UIViewController {
     
         if self.numberOfAcceleration >= 5{
             print("Arma recarregada com sucesso!")
+            // Recarga da energia da mira
+            overlay.runAction(action: overlay.laserRechargeSound)
             self.reloadWeapon()
             self.numberOfAcceleration = 0
         }

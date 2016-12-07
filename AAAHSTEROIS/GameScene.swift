@@ -12,6 +12,11 @@ import SceneKit
 import MultipeerConnectivity
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
+    
+    var laserFireSound = SKAction.playSoundFileNamed("laserFire.wav", waitForCompletion: false)
+    var gamePlaySound = SKAction.playSoundFileNamed("gamePlay.wav", waitForCompletion: true)
+    var laserRechargeSound = SKAction.playSoundFileNamed("laserRecharge.wav", waitForCompletion: false)
+    //var collisionSound = SKAction.playSoundFileNamed("laserFire.wav", waitForCompletion: false)
   
     //referencia ao delegate pra poder acessa o MPCManager
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -195,6 +200,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func addAim() {
         aimClass.aim.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
         addChild(aimClass.aim)
+    }
+    
+    func runAction(action: SKAction){
+        run(action)
     }
     
     

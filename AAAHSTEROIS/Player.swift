@@ -14,6 +14,7 @@ class Player {
     var laser: SKSpriteNode!
     var energy: Int!
     var speed: CGFloat!
+    var overlay: GameScene!
     
     let category: Int = 1
     let color: String!
@@ -57,16 +58,34 @@ class Player {
         print("\n texture path: \(texture)")
         
         self.laser.texture = SKTexture(imageNamed: texture)
+            
+        // Som do tiro do laser
+        //self.overlay.runAction(action: self.overlay.laserFireSound)
+            /*
+        DispatchQueue.main.async {
+                self.overlay.runAction(action: self.overlay.laserFireSound)
+            }
+ */
         }
+ 
     }
     
     func recharge() {
+        
         energy = energy + 8
         if energy > 8 { energy = 8 }
         
         let texture = "mira\(color!)\(energy!)"
         
         self.laser.texture = SKTexture(imageNamed: texture)
+        
+        // Som da recarga - NÃO USAR!!! - TA DANDO PROBLEMA
+        //self.overlay.runAction(action: self.overlay.laserRechargeSound)
+        /*
+        DispatchQueue.main.async {
+            self.overlay.runAction(action: self.overlay.laserRechargeSound)
+        }
+ */
     }
     
 }
