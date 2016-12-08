@@ -15,9 +15,9 @@
 		402E0A871DD17027003C7969 /* OptionsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E0A861DD17027003C7969 /* OptionsScene.swift */; };
 		402E0A891DD1703B003C7969 /* DeviceListScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E0A881DD1703B003C7969 /* DeviceListScene.swift */; };
 		402E0A8B1DD1705D003C7969 /* FinalResultScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E0A8A1DD1705D003C7969 /* FinalResultScene.swift */; };
-		403DC6C91DF8A70F008D21E6 /* laserFire.wav in Resources */ = {isa = PBXBuildFile; fileRef = 403DC6C81DF8A70F008D21E6 /* laserFire.wav */; };
-		403DC6CB1DF8A8EC008D21E6 /* laserRecharge.wav in Resources */ = {isa = PBXBuildFile; fileRef = 403DC6CA1DF8A8EC008D21E6 /* laserRecharge.wav */; };
-		403DC6CF1DF8AA22008D21E6 /* gamePlay.wav in Resources */ = {isa = PBXBuildFile; fileRef = 403DC6CE1DF8AA22008D21E6 /* gamePlay.wav */; };
+		403C77CC1DF9B38700DC2E04 /* laserFire.wav in Resources */ = {isa = PBXBuildFile; fileRef = 403C77CB1DF9B38700DC2E04 /* laserFire.wav */; };
+		403C77CE1DF9B3BF00DC2E04 /* gameplay.wav in Resources */ = {isa = PBXBuildFile; fileRef = 403C77CD1DF9B3BF00DC2E04 /* gameplay.wav */; };
+		403C77D01DF9B3CA00DC2E04 /* laserRecharge.wav in Resources */ = {isa = PBXBuildFile; fileRef = 403C77CF1DF9B3CA00DC2E04 /* laserRecharge.wav */; };
 		405482251DD9216C003F56DC /* EarthClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405482241DD9216C003F56DC /* EarthClass.swift */; };
 		40C8F71B1DD8D4D9009B4E24 /* AsteroidClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8F71A1DD8D4D9009B4E24 /* AsteroidClass.swift */; };
 		40C8F71D1DD8D4E3009B4E24 /* AimClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8F71C1DD8D4E3009B4E24 /* AimClass.swift */; };
@@ -48,9 +48,9 @@
 		402E0A861DD17027003C7969 /* OptionsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsScene.swift; sourceTree = "<group>"; };
 		402E0A881DD1703B003C7969 /* DeviceListScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceListScene.swift; sourceTree = "<group>"; };
 		402E0A8A1DD1705D003C7969 /* FinalResultScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalResultScene.swift; sourceTree = "<group>"; };
-		403DC6C81DF8A70F008D21E6 /* laserFire.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = laserFire.wav; path = "../../Dropbox (BEPiD)/1_Couch Games/Sons/laserFire.wav"; sourceTree = "<group>"; };
-		403DC6CA1DF8A8EC008D21E6 /* laserRecharge.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = laserRecharge.wav; path = "../../Dropbox (BEPiD)/1_Couch Games/Sons/laserRecharge.wav"; sourceTree = "<group>"; };
-		403DC6CE1DF8AA22008D21E6 /* gamePlay.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = gamePlay.wav; path = "../../Dropbox (BEPiD)/1_Couch Games/Sons/gamePlay.wav"; sourceTree = "<group>"; };
+		403C77CB1DF9B38700DC2E04 /* laserFire.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laserFire.wav; sourceTree = "<group>"; };
+		403C77CD1DF9B3BF00DC2E04 /* gameplay.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameplay.wav; sourceTree = "<group>"; };
+		403C77CF1DF9B3CA00DC2E04 /* laserRecharge.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laserRecharge.wav; sourceTree = "<group>"; };
 		405482241DD9216C003F56DC /* EarthClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarthClass.swift; sourceTree = "<group>"; };
 		40C8F71A1DD8D4D9009B4E24 /* AsteroidClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsteroidClass.swift; sourceTree = "<group>"; };
 		40C8F71C1DD8D4E3009B4E24 /* AimClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AimClass.swift; sourceTree = "<group>"; };
@@ -152,9 +152,9 @@
 			children = (
 				40CC61991DD118BD00178B7A /* Game.xcassets */,
 				40CC61A21DD118BD00178B7A /* Assets.xcassets */,
-				403DC6C81DF8A70F008D21E6 /* laserFire.wav */,
-				403DC6CA1DF8A8EC008D21E6 /* laserRecharge.wav */,
-				403DC6CE1DF8AA22008D21E6 /* gamePlay.wav */,
+				403C77CB1DF9B38700DC2E04 /* laserFire.wav */,
+				403C77CF1DF9B3CA00DC2E04 /* laserRecharge.wav */,
+				403C77CD1DF9B3BF00DC2E04 /* gameplay.wav */,
 				40CC61A41DD118BD00178B7A /* Info.plist */,
 			);
 			name = Data;
@@ -264,15 +264,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFB374E41DD9052600B9A6D0 /* OCRAStd.otf in Resources */,
-				403DC6CB1DF8A8EC008D21E6 /* laserRecharge.wav in Resources */,
 				EFE26F841DDE1E6700979881 /* explosion.scnp in Resources */,
 				EFF0362C1DD2565700EF97DD /* spark.png in Resources */,
 				EF8FA1951DD7AE7100CB350F /* fire.scnp in Resources */,
 				40CC619A1DD118BD00178B7A /* Game.xcassets in Resources */,
+				403C77D01DF9B3CA00DC2E04 /* laserRecharge.wav in Resources */,
 				40CC61A11DD118BD00178B7A /* Main.storyboard in Resources */,
-				403DC6C91DF8A70F008D21E6 /* laserFire.wav in Resources */,
-				403DC6CF1DF8AA22008D21E6 /* gamePlay.wav in Resources */,
+				403C77CC1DF9B38700DC2E04 /* laserFire.wav in Resources */,
 				40CC61A31DD118BD00178B7A /* Assets.xcassets in Resources */,
+				403C77CE1DF9B3BF00DC2E04 /* gameplay.wav in Resources */,
 				EFE26F861DDF7E3200979881 /* miniExplosion.scnp in Resources */,
 				EFB374E21DD8FFF600B9A6D0 /* HussarBdSuprObl.otf in Resources */,
 			);

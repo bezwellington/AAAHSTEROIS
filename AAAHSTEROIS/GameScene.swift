@@ -14,7 +14,7 @@ import MultipeerConnectivity
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var laserFireSound = SKAction.playSoundFileNamed("laserFire.wav", waitForCompletion: false)
-    var gamePlaySound = SKAction.playSoundFileNamed("gamePlay.wav", waitForCompletion: true)
+    var gamePlaySound = SKAction.playSoundFileNamed("gameplay.wav", waitForCompletion: true)
     var laserRechargeSound = SKAction.playSoundFileNamed("laserRecharge.wav", waitForCompletion: false)
     //var collisionSound = SKAction.playSoundFileNamed("laserFire.wav", waitForCompletion: false)
   
