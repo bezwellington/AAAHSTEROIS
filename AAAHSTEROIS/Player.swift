@@ -65,7 +65,7 @@ class Player {
         DispatchQueue.main.async {
                 self.overlay.runAction(action: self.overlay.laserFireSound)
             }
- */
+ *///
         }
  
     }
