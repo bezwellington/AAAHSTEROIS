@@ -93,7 +93,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func searchAndDestroyAsteroid(name: String) {
+    func searchAndDestroyAsteroid(name: String) -> Bool{
         
         for i in 0...(iphonePlayer.count - 1) {
             if iphonePlayer[i].name == name {
@@ -110,11 +110,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         //TODO: CHECAR O COLOR MATCHING
                         print("encostei, viadao IPHONE")
                         t.node.removeFromParentNode()
+                        return true
                     }
                 }
-                break
+                return false
             }
         }
+        return false
     }
     
     //chamada quando recebe mensagem do controller para recarregar laser
@@ -138,7 +140,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func runHitTest(){
+    func runHitTest() -> Bool{
         let pos = getViewPosition(pos: aimClass.aim.position)
         let hitResuts = game3DView.hitTest(pos, options: nil)
         print(hitResuts.count)
@@ -146,8 +148,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if t.node.name == "asteroid" {
                 print("encostei, viadao")
                 t.node.removeFromParentNode()
+                return true
             }
         }
+        return false
 
     }
     

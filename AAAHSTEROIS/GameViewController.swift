@@ -16,12 +16,15 @@ class GameViewController: UIViewController {
     
     
     @IBOutlet weak var game3DView: Game3DView!
+    @IBOutlet weak var scoreLabel: UILabel!
+    
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let deadlineTime = DispatchTime.now()
     var overlay = GameScene()
     var numberOfAcceleration = 0
     var energyAim = 8
+    var currentScore = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +63,12 @@ class GameViewController: UIViewController {
         // Release any cached data, images, etc that aren't in use.
     }
     
+    func increaseScore() {
+        print("___increase score")
+        self.currentScore += 1
+        self.scoreLabel.text = String(self.currentScore)
+    }
+    
     override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         
         for item in presses {
@@ -70,7 +79,10 @@ class GameViewController: UIViewController {
                 if self.energyAim > 0{
                     self.energyAim -= 1
                     
-                    overlay.runHitTest()
+                    if overlay.runHitTest() {
+                        print("hitTest retornou true pra VC")
+                        increaseScore()
+                    }
                     //TODO: TROCA A COR DA MIRA
                     overlay.aimClass.changeColor(color: "verde", number: self.energyAim)
                 }
@@ -112,7 +124,19 @@ class GameViewController: UIViewController {
     
     func gameOver() {
         
+        
         performSegue(withIdentifier: "goToGameOverVC", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goToGameOverVC"{
+            
+            if let nextVC = segue.destination as? GameOverViewController {
+                nextVC.finalScoreNumber = self.currentScore
+            }
+        }
+        
     }
     
     // Função que verifica a qtd de aceleração por Shake

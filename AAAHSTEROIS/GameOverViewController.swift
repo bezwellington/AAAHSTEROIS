@@ -10,10 +10,15 @@ import UIKit
 
 class GameOverViewController: UIViewController {
 
+    
+    @IBOutlet weak var finalScore: UILabel!
+    var finalScoreNumber = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        finalScore.text = String(finalScoreNumber)
+
     }
 
     override func didReceiveMemoryWarning() {

@@ -89,7 +89,10 @@ extension GameViewController: MPCManagerDelegate {
              print("\n SHOOT RECEIVED FROM \(peerName)")
             
             //TODO: chamar aqui a função que atira no asteroide com o player 2
-            overlay.searchAndDestroyAsteroid(name: peerName!)
+             if overlay.searchAndDestroyAsteroid(name: peerName!) {
+                //MARK: DEVE TER PROBLEMA DE THREAD AQUI
+                increaseScore()
+            }
         case .MOVE:
             
             let dx = messageReceived?["dx"] as? Double
