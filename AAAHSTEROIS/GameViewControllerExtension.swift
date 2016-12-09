@@ -90,8 +90,10 @@ extension GameViewController: MPCManagerDelegate {
             
             //TODO: chamar aqui a função que atira no asteroide com o player 2
              if overlay.searchAndDestroyAsteroid(name: peerName!) {
-                //MARK: DEVE TER PROBLEMA DE THREAD AQUI
-                increaseScore()
+                
+                DispatchQueue.main.async {
+                    self.increaseScore()
+                }
             }
         case .MOVE:
             
