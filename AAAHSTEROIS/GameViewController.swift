@@ -40,7 +40,7 @@ class GameViewController: UIViewController {
     func loadGameScene(){
         
         game3DView.loadGame()
-        game3DView.showsStatistics = true
+        game3DView.showsStatistics = false
         
         overlay = GameScene(size: self.view.bounds.size)
         
