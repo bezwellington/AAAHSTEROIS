@@ -232,6 +232,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" image="playButton"/>
+                                <connections>
+                                    <segue destination="499-42-d0g" kind="show" id="Tzi-Xn-gLj"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play Again" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbg-sh-4aF">
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="45"/>
@@ -271,4 +274,7 @@
         <image name="playButton" width="188" height="189"/>
         <image name="spaceBackground" width="1919" height="1080"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Tzi-Xn-gLj"/>
+    </inferredMetricsTieBreakers>
 </document>
