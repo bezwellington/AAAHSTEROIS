@@ -21,7 +21,6 @@ class Player {
     let name: String!
     let number: Int!
     
-    //TODO: USAR CLASSE AIM E APAGAR ISSO
     let shakeLabel = SKLabelNode(text: "SHAKE")
 
     
@@ -132,4 +131,5 @@ class IphonePlayer: Player {
     }
 
 }
+
 

@@ -13,11 +13,12 @@ import MultipeerConnectivity
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    var laserFireSound = SKAction.playSoundFileNamed("laserFire.wav", waitForCompletion: false)
-    var gamePlaySound = SKAction.playSoundFileNamed("gameplay.wav", waitForCompletion: true)
-    var laserRechargeSound = SKAction.playSoundFileNamed("laserRecharge.wav", waitForCompletion: false)
+    var laserFireSound = SKAction.playSoundFileNamed("laserFire6.wav", waitForCompletion: false)
+    var gamePlaySound = SKAction.playSoundFileNamed("gameplay4.wav", waitForCompletion: true)
+    var laserRechargeSound = SKAction.playSoundFileNamed("laserRecharge2.wav", waitForCompletion: false)
     //var collisionSound = SKAction.playSoundFileNamed("laserFire.wav", waitForCompletion: false)
   
+    
     //referencia ao delegate pra poder acessa o MPCManager
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
