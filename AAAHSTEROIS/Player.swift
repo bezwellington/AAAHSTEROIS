@@ -21,8 +21,13 @@ class Player {
     let name: String!
     let number: Int!
     
+    //TODO: USAR CLASSE AIM E APAGAR ISSO
+    let shakeLabel = SKLabelNode(text: "SHAKE")
+
+    
     
     init(coordinate: CGPoint, color: String, name: String, number: Int){
+        
         
         self.energy = 8
         self.speed = CGFloat(70.0)
@@ -31,7 +36,10 @@ class Player {
         self.name = name
         self.number = number
         
+        setShakeLabel()
+        
         self.laser = setupLaser(color: color)
+        
     }
     
     func setupLaser(color: String) -> SKSpriteNode{
@@ -42,10 +50,25 @@ class Player {
         laser.physicsBody?.isDynamic = true
         laser.physicsBody?.velocity = CGVector.zero
         
+        laser.addChild(shakeLabel)
+        
         //TODO: tirar aquele pulinho escroto que acontece quando encosta na borda
         // (linearDamping = 0 nao resolve)
         
         return laser
+    }
+    
+    func setShakeLabel(){
+        
+        shakeLabel.fontColor = UIColor.white
+        shakeLabel.fontSize = 62.0
+        shakeLabel.fontName = ".SFUIDisplay-Bold"
+        shakeLabel.horizontalAlignmentMode = .center
+        shakeLabel.verticalAlignmentMode = .center
+        
+        shakeLabel.isHidden = true
+        
+        
     }
     
     func shoot() {
@@ -54,6 +77,8 @@ class Player {
         energy = energy - 1;
         print("\n energy: \(energy)")
         
+        
+            
         let texture = "mira\(color!)\(energy!)"
         print("\n texture path: \(texture)")
         
@@ -67,6 +92,13 @@ class Player {
             }
  *///
         }
+        
+        if energy == 0{
+            
+            shakeLabel.isHidden = false
+        } else {
+            shakeLabel.isHidden = true
+        }
  
     }
     
@@ -79,6 +111,8 @@ class Player {
         
         self.laser.texture = SKTexture(imageNamed: texture)
         
+        shakeLabel.isHidden = true
+
         // Som da recarga - NÃO USAR!!! - TA DANDO PROBLEMA
         //self.overlay.runAction(action: self.overlay.laserRechargeSound)
         /*

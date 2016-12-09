@@ -26,13 +26,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var iphonePlayer: [IphonePlayer]!
     
+    
+    
     // Persist the initial touch position of the remote
     var touchPositionX: CGFloat = 0.0
     var touchPositionY: CGFloat = 0.0
   
     override func didMove(to view: SKView) {
+        
         setupBorder()
         addAim()
+        
         
         //MARK: comentar linha abaixo pra desabilitar conexão
         iphonePlayer = setupIphonePlayers()
@@ -203,6 +207,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addAim() {
         aimClass.aim.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
+        
         addChild(aimClass.aim)
     }
     
