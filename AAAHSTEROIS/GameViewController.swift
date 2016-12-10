@@ -84,7 +84,7 @@ class GameViewController: UIViewController {
                         increaseScore()
                     }
                     //TODO: TROCA A COR DA MIRA
-                    overlay.aimClass.changeColor(color: "verde", number: self.energyAim)
+                    overlay.aimClass.changeColor(color: "vermelha", number: self.energyAim)
                 }
             }
         }
@@ -155,7 +155,7 @@ class GameViewController: UIViewController {
     // Função que recarrega arma
     func reloadWeapon(){
         self.energyAim = 8
-        overlay.aimClass.changeColor(color: "verde", number: self.energyAim)
+        overlay.aimClass.changeColor(color: "vermelha", number: self.energyAim)
     }
     
 }

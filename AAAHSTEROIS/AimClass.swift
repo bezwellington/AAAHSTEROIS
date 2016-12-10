@@ -13,7 +13,7 @@ import GameplayKit
 
 class AimClass {
     
-    var aim = SKSpriteNode(imageNamed: "miraverde8")
+    var aim = SKSpriteNode(imageNamed: "miravermelha8")
     let aimCategory: Int = 1
     let shakeLabel = SKLabelNode(text: "SHAKE")
     

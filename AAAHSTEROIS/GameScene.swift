@@ -67,7 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let peers = appDelegate.mpcManager.session.connectedPeers
         var players = [IphonePlayer]()
         
-        let aimColors = ["vermelha", "verde", "azul", "amarela"]
+        let aimColors = ["verde", "vermelha", "azul", "amarela"]
     
         //configura cada um dos players conectados e adiciona no array de players
         print("\n\n PEER COUNT: \(peers.count) \nPEER FOUND: \(peers[0].displayName)")
