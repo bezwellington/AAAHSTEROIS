@@ -72,6 +72,9 @@ extension GameViewController: MPCManagerDelegate {
         //TODO: tratar a queda de conexão durante o jogo e a volta da conexão
         //se a conexão cai durante o jogo, não é necessário dar load na gameScene novamente
         print("CONNECTED WITH PEER")
+        DispatchQueue.main.async {
+            self.lostConnectionView.isHidden = true
+        }
         game3DView.scene?.isPaused = false
         game3DView.overlaySKScene?.scene?.isPaused = false
     }
@@ -79,10 +82,14 @@ extension GameViewController: MPCManagerDelegate {
     func disconnectedWithPeer(peerID: MCPeerID) {
         print("DISCONNECTED WITH PEER")
         print(" OVERLAY VIEW::::::::::: \(game3DView)")
-        //game3DView.becomeFirstResponder()
+        
         game3DView.scene?.isPaused = true
-        game3DView.overlaySKScene?.scene?.isPaused = true
+        DispatchQueue.main.async {
+            self.lostConnectionView.isHidden = false
+        }
+        //MARK: isso aqui não tá funcionado:
         appDelegate.mpcManager.enableServices(enable: true)
+        
     }
     
     func handleMessageReceived (messageReceived: Dictionary<String, Any>?){

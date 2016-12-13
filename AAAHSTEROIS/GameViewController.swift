@@ -17,6 +17,7 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var game3DView: Game3DView!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var lostConnectionView: UIStackView!
     
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate

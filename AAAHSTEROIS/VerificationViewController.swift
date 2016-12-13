@@ -17,21 +17,20 @@ class VerificationViewController: UIViewController, MPCManagerDelegate {
   @IBOutlet weak var number2: UILabel!
   @IBOutlet weak var number3: UILabel!
     
+    
   //MARK: alterar aqui para a variavel global de codigo
     let code = "5284"
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var goingToGVC: Bool!
 
 
   
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        goingToGVC = false
       //setCode()
         print("VIEW DID LOAD VERIFICATION VIEW CONTROLLER")
-        //MARK: comentar linhas abaixo pra desabilitar conexão
-        
-        //appDelegate.mpcManager.enableServices(enable: true)
-        
+    
         //MARK: descomentar linha abaixo pra desabilitar conexão
         //loadGameVC()
         
@@ -39,8 +38,19 @@ class VerificationViewController: UIViewController, MPCManagerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         print("VIEW WILL APPEAR VVC")
+        
+        //MARK: comentar linhas abaixo pra desabilitar conexão
         appDelegate.mpcManager.delegate = self
         appDelegate.mpcManager.enableServices(enable: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("VIEW WILL DISAPPEAR VVC")
+        
+        //condicao para quando a verification view volta para a tela de start match
+        if goingToGVC == false {
+        appDelegate.mpcManager.session.disconnect()
+        }
     }
 
   func setCode(){
@@ -77,7 +87,7 @@ class VerificationViewController: UIViewController, MPCManagerDelegate {
         appDelegate.mpcManager.browser.stopBrowsingForPeers()
         
         print("\n\n start session with \(peerID.displayName)\n\n")
-        
+        goingToGVC = true
         loadGameVC()
     }
     
