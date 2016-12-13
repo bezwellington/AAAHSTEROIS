@@ -87,6 +87,8 @@ class VerificationViewController: UIViewController, MPCManagerDelegate {
     }
     func handleMessageReceived (messageReceived: Dictionary<String, Any>?){ }
     
-    internal func disconnectedWithPeer(peerID: MCPeerID) { }
+    internal func disconnectedWithPeer(peerID: MCPeerID) {
+        appDelegate.mpcManager.browser(appDelegate.mpcManager.browser, foundPeer: peerID, withDiscoveryInfo: nil)
+    }
 
 }
