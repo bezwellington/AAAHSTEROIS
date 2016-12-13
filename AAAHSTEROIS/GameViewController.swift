@@ -61,8 +61,6 @@ class GameViewController: UIViewController {
         // Som do início do jogo
         overlay.run(SKAction.repeatForever(overlay.gamePlaySound))
         
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -82,6 +80,7 @@ class GameViewController: UIViewController {
             //Se o TrackPad for pressionado
             if item.type == .playPause{
                 // Som do tiro do laser
+                
                 overlay.runAction(action: overlay.laserFireSound)
                 if self.energyAim > 0{
                     self.energyAim -= 1

@@ -13,6 +13,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
     
     let possibleAsteroidColor:[UIColor] = [UIColor.cyan, UIColor.yellow]
     let earth = EarthClass()
+    var overlay: GameScene!
     let earthCategory: Int = 2
     
     var asteroidFrequency = 3.0
@@ -109,7 +110,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
     func physicsWorld(_ world: SCNPhysicsWorld,didBegin contact: SCNPhysicsContact) {
 
         if (contact.nodeA.name == "earth" || contact.nodeA.name == "asteroid") && (contact.nodeB.name == "earth" || contact.nodeB.name == "asteroid") {
-            
+
             //asteroidsTimer.invalidate()
             
             let miniExplosionEmitterNode = SCNNode()
@@ -148,6 +149,8 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
                 self.gameOver = true
                 print("__ TRUE GAME OVER")
             }
+            
+            
             
         }
     }

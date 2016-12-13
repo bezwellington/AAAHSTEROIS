@@ -12,6 +12,7 @@
 		2E9331A11E005A9B0035E36C /* SupportFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9331A01E005A9B0035E36C /* SupportFunctions.swift */; };
 		2EABADCF1DE0E5EA004F0CF8 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EABADCE1DE0E5EA004F0CF8 /* Player.swift */; };
 		2EABADD21DE12184004F0CF8 /* CGVectorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EABADD11DE12184004F0CF8 /* CGVectorExtension.swift */; };
+		402BCDFD1E00677A00930C0C /* asteroidEarthExplosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 402BCDFC1E00677A00930C0C /* asteroidEarthExplosion.wav */; };
 		402E0A851DD17009003C7969 /* InitialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E0A841DD17009003C7969 /* InitialScene.swift */; };
 		402E0A871DD17027003C7969 /* OptionsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E0A861DD17027003C7969 /* OptionsScene.swift */; };
 		402E0A891DD1703B003C7969 /* DeviceListScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402E0A881DD1703B003C7969 /* DeviceListScene.swift */; };
@@ -46,6 +47,7 @@
 		2E9331A01E005A9B0035E36C /* SupportFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportFunctions.swift; sourceTree = "<group>"; };
 		2EABADCE1DE0E5EA004F0CF8 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		2EABADD11DE12184004F0CF8 /* CGVectorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGVectorExtension.swift; sourceTree = "<group>"; };
+		402BCDFC1E00677A00930C0C /* asteroidEarthExplosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = asteroidEarthExplosion.wav; sourceTree = "<group>"; };
 		402E0A841DD17009003C7969 /* InitialScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialScene.swift; sourceTree = "<group>"; };
 		402E0A861DD17027003C7969 /* OptionsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsScene.swift; sourceTree = "<group>"; };
 		402E0A881DD1703B003C7969 /* DeviceListScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceListScene.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				EF647F431DFB0B5000E31919 /* laserFire6.wav */,
 				EF647F3B1DFB085100E31919 /* laserRecharge2.wav */,
 				EF647F371DFAFF7500E31919 /* gameplay4.wav */,
+				402BCDFC1E00677A00930C0C /* asteroidEarthExplosion.wav */,
 				40CC61A41DD118BD00178B7A /* Info.plist */,
 			);
 			name = Data;
@@ -290,6 +293,7 @@
 				40CC61A11DD118BD00178B7A /* Main.storyboard in Resources */,
 				EF647F3C1DFB085100E31919 /* laserRecharge2.wav in Resources */,
 				40CC61A31DD118BD00178B7A /* Assets.xcassets in Resources */,
+				402BCDFD1E00677A00930C0C /* asteroidEarthExplosion.wav in Resources */,
 				EF647F441DFB0B5000E31919 /* laserFire6.wav in Resources */,
 				EFE26F861DDF7E3200979881 /* miniExplosion.scnp in Resources */,
 				EFB374E21DD8FFF600B9A6D0 /* HussarBdSuprObl.otf in Resources */,
