@@ -17,7 +17,6 @@ extension GameViewController: MPCManagerDelegate {
     
     func foundPeer(peer: MCPeerID) {
         print("Found Peer!")
-        
     }
     
     func lostPeer() {

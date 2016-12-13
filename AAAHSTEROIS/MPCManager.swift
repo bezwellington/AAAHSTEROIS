@@ -158,9 +158,10 @@ extension MPCManager: MCSessionDelegate {
             print("\n \n Connected to session: \(session)\n\n")
             delegate?.connectedWithPeer(peerID: peerID)
         case .connecting:
-            print("\n\nConnecting to session: \(session)\n\n")
+            print("\n\n Connecting to session: \(session)\n\n")
+            
         default:
-            print("\n\nDid not connect to session: \(session)\n\n")
+            print("\n\n Did not connect to session: \(session)\n\n")
             self.delegate?.disconnectedWithPeer(peerID: peerID)
         }
     }

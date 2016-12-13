@@ -205,7 +205,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3IN-TU-15p">
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3IN-TU-15p">
                                 <rect key="frame" x="329" y="459" width="1262" height="163"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -318,6 +318,6 @@
         <image name="spaceBackground" width="1919" height="1080"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SUr-Qx-5b6"/>
+        <segue reference="Tzi-Xn-gLj"/>
     </inferredMetricsTieBreakers>
 </document>

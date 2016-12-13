@@ -23,11 +23,8 @@ class Player {
     
     let shakeLabel = SKLabelNode(text: "SHAKE")
 
-    
-    
     init(coordinate: CGPoint, color: String, name: String, number: Int){
-        
-        
+            
         self.energy = 8
         self.speed = CGFloat(70.0)
         self.coordinate = coordinate
@@ -66,8 +63,6 @@ class Player {
         shakeLabel.verticalAlignmentMode = .center
         
         shakeLabel.isHidden = true
-        
-        
     }
     
     func shoot() {
@@ -85,11 +80,12 @@ class Player {
             
         // Som do tiro do laser
         //self.overlay.runAction(action: self.overlay.laserFireSound)
-            /*
+        /*
         DispatchQueue.main.async {
                 self.overlay.runAction(action: self.overlay.laserFireSound)
             }
- *///
+        */
+            
         }
         
         if energy == 0{

@@ -46,11 +46,13 @@ class VerificationViewController: UIViewController, MPCManagerDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         print("VIEW WILL DISAPPEAR VVC")
-        
+        print("GOING TO GVC: \(goingToGVC)")
         //condicao para quando a verification view volta para a tela de start match
         if goingToGVC == false {
         appDelegate.mpcManager.session.disconnect()
         }
+        
+        goingToGVC = false
     }
 
   func setCode(){
