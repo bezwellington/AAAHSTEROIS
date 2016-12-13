@@ -124,8 +124,8 @@ extension MPCManager: MCNearbyServiceBrowserDelegate {
         
         print("\n \n ACHOU UM PEER \(peerID.displayName) \n\n")
         
-        //TODO: Criar um código numerico aleatório de 4 algarismos
-        let codeData = "1234".data(using: String.Encoding.utf8)
+        //MARK: alterar aqui para a variavel global de codigo
+        let codeData = "5284".data(using: String.Encoding.utf8)
         
         browser.invitePeer(peerID, to: session, withContext: codeData, timeout: 120)
         print("\n\n CONVIDOU O PEER \n\n")

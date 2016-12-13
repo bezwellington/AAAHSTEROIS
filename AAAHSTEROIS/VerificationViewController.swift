@@ -16,8 +16,9 @@ class VerificationViewController: UIViewController, MPCManagerDelegate {
   @IBOutlet weak var number1: UILabel!
   @IBOutlet weak var number2: UILabel!
   @IBOutlet weak var number3: UILabel!
-  
-  let code = "1234"
+    
+  //MARK: alterar aqui para a variavel global de codigo
+    let code = "5284"
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 
