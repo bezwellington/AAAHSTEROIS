@@ -16,7 +16,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var laserFireSound = SKAction.playSoundFileNamed("laserFire6.wav", waitForCompletion: false)
     var gamePlaySound = SKAction.playSoundFileNamed("gameplay4.wav", waitForCompletion: true)
     var laserRechargeSound = SKAction.playSoundFileNamed("laserRecharge2.wav", waitForCompletion: false)
-    //var collisionSound = SKAction.playSoundFileNamed("laserFire.wav", waitForCompletion: false)
+    var collisionSound = SKAction.playSoundFileNamed("asteroidEarthExplosion.wav", waitForCompletion: false)
   
     
     //referencia ao delegate pra poder acessa o MPCManager
