@@ -71,7 +71,18 @@ extension GameViewController: MPCManagerDelegate {
     func connectedWithPeer(peerID: MCPeerID) {
         //TODO: tratar a queda de conexão durante o jogo e a volta da conexão
         //se a conexão cai durante o jogo, não é necessário dar load na gameScene novamente
-        //overlay.view?.isPaused = false
+        print("CONNECTED WITH PEER")
+        game3DView.scene?.isPaused = false
+        game3DView.overlaySKScene?.scene?.isPaused = false
+    }
+    
+    func disconnectedWithPeer(peerID: MCPeerID) {
+        print("DISCONNECTED WITH PEER")
+        print(" OVERLAY VIEW::::::::::: \(game3DView)")
+        //game3DView.becomeFirstResponder()
+        game3DView.scene?.isPaused = true
+        game3DView.overlaySKScene?.scene?.isPaused = true
+        appDelegate.mpcManager.enableServices(enable: true)
     }
     
     func handleMessageReceived (messageReceived: Dictionary<String, Any>?){

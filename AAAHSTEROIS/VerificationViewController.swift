@@ -11,7 +11,7 @@ import MultipeerConnectivity
 
 class VerificationViewController: UIViewController, MPCManagerDelegate {
 
-  
+
   @IBOutlet weak var number0: UILabel!
   @IBOutlet weak var number1: UILabel!
   @IBOutlet weak var number2: UILabel!
@@ -26,14 +26,20 @@ class VerificationViewController: UIViewController, MPCManagerDelegate {
         super.viewDidLoad()
 
       //setCode()
-        
+        print("VIEW DID LOAD VERIFICATION VIEW CONTROLLER")
         //MARK: comentar linhas abaixo pra desabilitar conexão
-        appDelegate.mpcManager.delegate = self
-        appDelegate.mpcManager.enableServices(enable: true)
+        
+        //appDelegate.mpcManager.enableServices(enable: true)
         
         //MARK: descomentar linha abaixo pra desabilitar conexão
         //loadGameVC()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("VIEW WILL APPEAR VVC")
+        appDelegate.mpcManager.delegate = self
+        appDelegate.mpcManager.enableServices(enable: true)
     }
 
   func setCode(){
@@ -80,5 +86,7 @@ class VerificationViewController: UIViewController, MPCManagerDelegate {
         }
     }
     func handleMessageReceived (messageReceived: Dictionary<String, Any>?){ }
+    
+    internal func disconnectedWithPeer(peerID: MCPeerID) { }
 
 }

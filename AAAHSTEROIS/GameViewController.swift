@@ -30,11 +30,18 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         print("\n VIEW DID LOAD GAME VC \n")
-        appDelegate.mpcManager.delegate = self
-        loadGameScene()
+        
         
         let observerOptions = NSKeyValueObservingOptions([.new, .old, .initial, .prior])
         game3DView.addObserver(self, forKeyPath: "gameOver", options: observerOptions, context: nil)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        appDelegate.mpcManager.delegate = self
+        loadGameScene()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        print("VIEW WILL DISAPPEAR GVC")
+        appDelegate.mpcManager.session.disconnect()
     }
     
     func loadGameScene(){

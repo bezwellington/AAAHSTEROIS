@@ -18,6 +18,8 @@ protocol MPCManagerDelegate {
     
     func connectedWithPeer(peerID: MCPeerID)
     
+    func disconnectedWithPeer(peerID: MCPeerID)
+    
     func handleMessageReceived (messageReceived: Dictionary<String, Any>?)
 }
 
@@ -125,7 +127,7 @@ extension MPCManager: MCNearbyServiceBrowserDelegate {
         //TODO: Criar um código numerico aleatório de 4 algarismos
         let codeData = "1234".data(using: String.Encoding.utf8)
         
-        browser.invitePeer(peerID, to: session, withContext: codeData, timeout: 60)
+        browser.invitePeer(peerID, to: session, withContext: codeData, timeout: 120)
         print("\n\n CONVIDOU O PEER \n\n")
         
         delegate?.foundPeer(peer: peerID)
@@ -140,8 +142,6 @@ extension MPCManager: MCNearbyServiceBrowserDelegate {
             }
         }
         
-        
-        print("PERDEU O PEER")
         delegate?.lostPeer()
     }
     
@@ -161,7 +161,7 @@ extension MPCManager: MCSessionDelegate {
             print("\n\nConnecting to session: \(session)\n\n")
         default:
             print("\n\nDid not connect to session: \(session)\n\n")
-            self.delegate?.lostPeer()
+            self.delegate?.disconnectedWithPeer(peerID: peerID)
         }
     }
     

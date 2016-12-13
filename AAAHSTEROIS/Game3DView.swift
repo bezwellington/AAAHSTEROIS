@@ -82,10 +82,8 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
     
     func sceneSetup() {
         let scene = SCNScene()
-        
         scene.background.contents = #imageLiteral(resourceName: "spaceBackground")
         scene.physicsWorld.contactDelegate = self
-        
         
         let ambientLightNode = SCNNode()
         ambientLightNode.light = SCNLight()
@@ -93,14 +91,12 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
         ambientLightNode.light!.color = UIColor(white: 0.67, alpha: 1.0)
         scene.rootNode.addChildNode(ambientLightNode)
         
-            let omniLightNode = SCNNode()
-            omniLightNode.light = SCNLight()
-            omniLightNode.light!.type = SCNLight.LightType.omni
-            omniLightNode.light!.color = UIColor(white: 0.75, alpha: 1.0)
-            omniLightNode.position = SCNVector3Make(0, 0, 50)
-            scene.rootNode.addChildNode(omniLightNode)
-        
-        
+        let omniLightNode = SCNNode()
+        omniLightNode.light = SCNLight()
+        omniLightNode.light!.type = SCNLight.LightType.omni
+        omniLightNode.light!.color = UIColor(white: 0.75, alpha: 1.0)
+        omniLightNode.position = SCNVector3Make(0, 0, 50)
+        scene.rootNode.addChildNode(omniLightNode)
         
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
@@ -152,13 +148,6 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
                 self.gameOver = true
                 print("__ TRUE GAME OVER")
             }
-            
-            
-            //            for node in (self.scene?.rootNode.childNodes)!{
-            //                if node.name != "explosion"{
-            //                node.removeFromParentNode()
-            //                }
-            //            }
             
         }
     }
