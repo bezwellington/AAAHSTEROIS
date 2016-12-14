@@ -26,15 +26,13 @@ class GameViewController: UIViewController {
     var numberOfAcceleration = 0
     var energyAim = 8
     var currentScore = 0
+    var timer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("\n VIEW DID LOAD GAME VC \n")
-        
-        
-        let observerOptions = NSKeyValueObservingOptions([.new, .old, .initial, .prior])
-        game3DView.addObserver(self, forKeyPath: "gameOver", options: observerOptions, context: nil)
+
     }
     override func viewWillAppear(_ animated: Bool) {
         appDelegate.mpcManager.delegate = self
@@ -62,6 +60,9 @@ class GameViewController: UIViewController {
         // Som do início do jogo
         overlay.run(SKAction.repeatForever(overlay.gamePlaySound))
         
+        //Verifica o numero de asteroides que colidiram com a Terra
+        self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.callGameOver), userInfo: nil, repeats: true)
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -117,18 +118,6 @@ class GameViewController: UIViewController {
         
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        
-        if keyPath == "gameOver"{
-            if let newValue = change?[NSKeyValueChangeKey.newKey] as? Int{
-                if newValue == 1{
-                    print("___***___ VC DETECTOU GAME OVER")
-                    gameOver()
-                }
-            }
-        }
-    }
-    
     func gameOver() {
         
         
@@ -165,6 +154,12 @@ class GameViewController: UIViewController {
         overlay.aimClass.changeColor(color: "vermelha", number: self.energyAim)
     }
     
+    func callGameOver(){
+        print("Numero de colisoes - \(game3DView.numberOfCollisions)")
+        if game3DView.numberOfCollisions == 20 {
+            gameOver()
+        }
+    }
 }
 
 

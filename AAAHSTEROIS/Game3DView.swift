@@ -19,9 +19,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
     var asteroidFrequency = 3.0
     var currentAsteroidRound = 0
     var asteroidsTimer = Timer()
-    
-    dynamic var gameOver = false
-    
+    var numberOfCollisions: Int =  0
 
     func loadGame(){
         self.delegate = self
@@ -113,6 +111,8 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
 
             //asteroidsTimer.invalidate()
             
+            numberOfCollisions += 1
+            
             let miniExplosionEmitterNode = SCNNode()
             miniExplosionEmitterNode.position = contact.contactPoint
             miniExplosionEmitterNode.name = "explosion"
@@ -133,25 +133,22 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
                 
             }
             
-            
+         
+           
+     
             if contact.nodeA.name == "asteroid"{
                 remove(node: contact.nodeA)
                 //contact.nodeA.removeFromParentNode()
                 print("REMOVEU A")
+                
+
             } else if contact.nodeB.name == "asteroid"{
                 remove(node: contact.nodeB)
                 //contact.nodeB.removeFromParentNode()
                 print("REMOVEU B")
-            }
-            
-            if earth.wasHit() {
                 
-                self.gameOver = true
-                print("__ TRUE GAME OVER")
+
             }
-            
-            
-            
         }
     }
     
