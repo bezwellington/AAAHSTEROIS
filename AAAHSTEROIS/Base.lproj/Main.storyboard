@@ -34,7 +34,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AAAHSTEROIDS!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYf-pV-6q4">
-                                <rect key="frame" x="352" y="217" width="1216" height="165"/>
+                                <rect key="frame" x="352" y="217" width="1216" height="154"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1216" id="vJD-QO-rfi"/>
                                 </constraints>
@@ -330,7 +330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SAU-PI-9S6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="525" y="1764"/>
+            <point key="canvasLocation" x="525" y="1521"/>
         </scene>
     </scenes>
     <resources>
@@ -338,6 +338,6 @@
         <image name="spaceBackground" width="1919" height="1080"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hNd-q5-8EM"/>
+        <segue reference="Tzi-Xn-gLj"/>
     </inferredMetricsTieBreakers>
 </document>
