@@ -21,6 +21,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
     var asteroidsTimer = Timer()
     var numberOfCollisions: Int =  0
 
+
     func loadGame(){
         self.delegate = self
         sceneSetup()
@@ -146,9 +147,14 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
                 remove(node: contact.nodeB)
                 //contact.nodeB.removeFromParentNode()
                 print("REMOVEU B")
+
                 
 
             }
+
+            }
+            
+
         }
     }
     
@@ -164,4 +170,4 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
         }
     }
     
-}
+

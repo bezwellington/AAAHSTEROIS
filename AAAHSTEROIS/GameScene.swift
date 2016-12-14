@@ -25,7 +25,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var aimClass = AimClass()
     var game3DView: Game3DView!
     
-    var iphonePlayer: [IphonePlayer]!
+    var iphonePlayer = [IphonePlayer]()
     
     
     
@@ -40,7 +40,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         //MARK: comentar linha abaixo pra desabilitar conexão
-        iphonePlayer = setupIphonePlayers()
+        print("SINGLE PLAYER ----- \(singlePlayer)")
+        if singlePlayer == false {
+            iphonePlayer = setupIphonePlayers() }
     }
     
     func setupBorder(){

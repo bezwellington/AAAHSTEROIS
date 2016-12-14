@@ -26,8 +26,12 @@ class InitialViewController: UIViewController {
   }
     
     @IBAction func pressedCreateAMatch(_ sender: AnyObject) {
-        
+        singlePlayer = false
         performSegue(withIdentifier: "goToCreateAMatch", sender: self)
     }
 
+    @IBAction func pressedSinglePlayer(_ sender: Any) {
+        singlePlayer = true
+        performSegue(withIdentifier: "goToSingleMatch", sender: self)
+    }
 }
