@@ -90,7 +90,6 @@ extension GameViewController: MPCManagerDelegate {
         }
         //MARK: isso aqui não tá funcionado:
         appDelegate.mpcManager.enableServices(enable: true)
-        
     }
     
     func handleMessageReceived (messageReceived: Dictionary<String, Any>?){

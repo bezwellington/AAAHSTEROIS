@@ -27,10 +27,12 @@ class GameViewController: UIViewController {
     var energyAim = 8
     var currentScore = 0
     var timer: Timer!
+    var gameover: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        gameover = false
         print("\n VIEW DID LOAD GAME VC \n")
 
     }
@@ -119,7 +121,7 @@ class GameViewController: UIViewController {
     
     func gameOver() {
         
-        
+        gameover = true
         performSegue(withIdentifier: "goToGameOverVC", sender: self)
     }
     
