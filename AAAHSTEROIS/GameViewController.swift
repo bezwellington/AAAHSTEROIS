@@ -46,7 +46,7 @@ class GameViewController: UIViewController {
     }
     
     func loadGameScene(){
-        
+        //PUSH
         game3DView.loadGame()
         game3DView.showsStatistics = false
         
