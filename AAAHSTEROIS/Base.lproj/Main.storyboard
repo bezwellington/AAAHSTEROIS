@@ -31,10 +31,12 @@
                                 <frame key="frameInset" width="1920" height="1080"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AAAHSTEROIDS!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYf-pV-6q4">
                                 <frame key="frameInset" minX="440" minY="168" width="1026" height="133"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HussarBdSuprObl" family="Hussar" pointSize="106"/>
+
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -296,7 +298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SAU-PI-9S6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1290" y="1806"/>
+            <point key="canvasLocation" x="525" y="1521"/>
         </scene>
     </scenes>
     <resources>
@@ -306,6 +308,6 @@
         <image name="spaceBackground" width="1919" height="1080"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hNd-q5-8EM"/>
+        <segue reference="Tzi-Xn-gLj"/>
     </inferredMetricsTieBreakers>
 </document>

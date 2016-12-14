@@ -12,3 +12,4 @@ import Foundation
 //TODO: implementar aqui a funcao de codigo aleatorio junto com a variavel global do codigo aleatorio
 
 var singlePlayer: Bool! = false
+

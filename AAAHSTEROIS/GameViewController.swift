@@ -27,20 +27,25 @@ class GameViewController: UIViewController {
     var energyAim = 8
     var currentScore = 0
     var timer: Timer!
+    var gameover: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        gameover = false
         print("\n VIEW DID LOAD GAME VC \n")
 
     }
     override func viewWillAppear(_ animated: Bool) {
+        game3DView.numberOfCollisions = 0
         appDelegate.mpcManager.delegate = self
         loadGameScene()
     }
     override func viewWillDisappear(_ animated: Bool) {
         print("VIEW WILL DISAPPEAR GVC")
+        if !gameover {
         appDelegate.mpcManager.session.disconnect()
+        }
     }
     
     func loadGameScene(){
@@ -118,8 +123,7 @@ class GameViewController: UIViewController {
     }
     
     func gameOver() {
-        
-        
+        gameover = true
         performSegue(withIdentifier: "goToGameOverVC", sender: self)
     }
     
@@ -154,7 +158,7 @@ class GameViewController: UIViewController {
     }
     
     func callGameOver(){
-        print("Numero de colisoes - \(game3DView.numberOfCollisions)")
+        //print("Numero de colisoes - \(game3DView.numberOfCollisions)")
         if game3DView.numberOfCollisions == 20 {
             gameOver()
         }

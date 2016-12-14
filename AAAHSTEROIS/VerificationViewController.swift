@@ -41,6 +41,7 @@ class VerificationViewController: UIViewController, MPCManagerDelegate {
         
         //MARK: comentar linhas abaixo pra desabilitar conexão
         if singlePlayer == false {
+            print("ENABLE SERVICES VVC")
         appDelegate.mpcManager.delegate = self
         appDelegate.mpcManager.enableServices(enable: true)
         }
