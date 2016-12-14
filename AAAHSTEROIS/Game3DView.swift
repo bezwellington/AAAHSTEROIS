@@ -147,9 +147,6 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
                 remove(node: contact.nodeB)
                 //contact.nodeB.removeFromParentNode()
                 print("REMOVEU B")
-
-                
-
             }
 
             }

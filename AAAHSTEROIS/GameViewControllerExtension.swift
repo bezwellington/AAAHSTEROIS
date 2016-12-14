@@ -74,8 +74,10 @@ extension GameViewController: MPCManagerDelegate {
         DispatchQueue.main.async {
             self.lostConnectionView.isHidden = true
         }
+        appDelegate.mpcManager.enableServices(enable: false)
         game3DView.scene?.isPaused = false
         game3DView.overlaySKScene?.scene?.isPaused = false
+        
     }
     
     func disconnectedWithPeer(peerID: MCPeerID) {
