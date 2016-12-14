@@ -19,9 +19,6 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
     var asteroidFrequency = 3.0
     var currentAsteroidRound = 0
     var asteroidsTimer = Timer()
-    
-    dynamic var gameOver = false
-    
 
     func loadGame(){
         self.delegate = self
@@ -143,14 +140,6 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
                 //contact.nodeB.removeFromParentNode()
                 print("REMOVEU B")
             }
-            
-            if earth.wasHit() {
-                
-                self.gameOver = true
-                print("__ TRUE GAME OVER")
-            }
-            
-            
             
         }
     }

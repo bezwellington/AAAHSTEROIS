@@ -40,8 +40,10 @@ class VerificationViewController: UIViewController, MPCManagerDelegate {
         print("VIEW WILL APPEAR VVC")
         
         //MARK: comentar linhas abaixo pra desabilitar conexão
+        if singlePlayer == false {
         appDelegate.mpcManager.delegate = self
         appDelegate.mpcManager.enableServices(enable: true)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

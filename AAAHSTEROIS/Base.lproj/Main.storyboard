@@ -51,11 +51,14 @@
                                     <action selector="pressedCreateAMatch:" destination="MKD-2U-hBz" eventType="primaryActionTriggered" id="ZoE-VT-Z0g"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0WP-61-JzU">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0WP-61-JzU" userLabel="singlePlayerButton">
                                 <rect key="frame" x="1091" y="572" width="268" height="229"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" image="playButton"/>
+                                <connections>
+                                    <action selector="pressedSinglePlayer:" destination="MKD-2U-hBz" eventType="primaryActionTriggered" id="Ops-dV-oba"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 players" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVd-Xy-NMw">
                                 <rect key="frame" x="603" y="834" width="189" height="54"/>
@@ -89,6 +92,7 @@
                     <connections>
                         <outlet property="createMatchButton" destination="OdB-du-jb9" id="daL-Ji-PDl"/>
                         <segue destination="iUM-PU-hlh" kind="show" identifier="goToCreateAMatch" id="btH-d5-nSI"/>
+                        <segue destination="499-42-d0g" kind="show" identifier="goToSingleMatch" id="hNd-q5-8EM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="85o-wg-cRL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -334,6 +338,6 @@
         <image name="spaceBackground" width="1919" height="1080"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Tzi-Xn-gLj"/>
+        <segue reference="hNd-q5-8EM"/>
     </inferredMetricsTieBreakers>
 </document>

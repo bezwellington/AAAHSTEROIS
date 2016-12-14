@@ -31,10 +31,6 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         print("\n VIEW DID LOAD GAME VC \n")
-        
-        
-        let observerOptions = NSKeyValueObservingOptions([.new, .old, .initial, .prior])
-        game3DView.addObserver(self, forKeyPath: "gameOver", options: observerOptions, context: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
         appDelegate.mpcManager.delegate = self
@@ -46,7 +42,6 @@ class GameViewController: UIViewController {
     }
     
     func loadGameScene(){
-        //PUSH
         game3DView.loadGame()
         game3DView.showsStatistics = false
         
@@ -115,18 +110,6 @@ class GameViewController: UIViewController {
             
         }
         
-    }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        
-        if keyPath == "gameOver"{
-            if let newValue = change?[NSKeyValueChangeKey.newKey] as? Int{
-                if newValue == 1{
-                    print("___***___ VC DETECTOU GAME OVER")
-                    gameOver()
-                }
-            }
-        }
     }
     
     func gameOver() {
