@@ -11,7 +11,7 @@ import SceneKit
 
 class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
     
-    let possibleAsteroidColor:[UIColor] = [UIColor.cyan, UIColor.yellow]
+    let possibleAsteroidColor:[UIColor] = [UIColor.yellow]
     let earth = EarthClass()
     var overlay: GameScene!
     let earthCategory: Int = 2
@@ -113,6 +113,7 @@ class Game3DView: SCNView, SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
             //asteroidsTimer.invalidate()
             
             numberOfCollisions += 1
+            earth.gotHit(numberOfCollisions: numberOfCollisions)
             
             let miniExplosionEmitterNode = SCNNode()
             miniExplosionEmitterNode.position = contact.contactPoint

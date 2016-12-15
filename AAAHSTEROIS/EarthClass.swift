@@ -46,7 +46,8 @@ class EarthClass {
         
         earthNode.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 1, y: 1, z: 1, duration: 70)))
     }
-    
+  
+  /*
     func wasHit() -> Bool{
         
         if self.hitCount < 10 {
@@ -62,6 +63,16 @@ class EarthClass {
         }
         return false
     }
+ */
+  
+  func gotHit (numberOfCollisions:Int){
+    
+    if numberOfCollisions <= 10{
+      
+      self.earthNode.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "terra\(numberOfCollisions)")
+
+    }
+  }
     
     
 }
