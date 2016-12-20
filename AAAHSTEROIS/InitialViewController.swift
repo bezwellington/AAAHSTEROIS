@@ -32,6 +32,6 @@ class InitialViewController: UIViewController {
 
     @IBAction func pressedSinglePlayer(_ sender: Any) {
         singlePlayer = true
-        performSegue(withIdentifier: "goToSingleMatch", sender: self)
+        performSegue(withIdentifier: "mainGoToHowToPlay", sender: self)
     }
 }

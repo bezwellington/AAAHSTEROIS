@@ -81,6 +81,7 @@
                         <outlet property="createMatchButton" destination="OdB-du-jb9" id="daL-Ji-PDl"/>
                         <segue destination="iUM-PU-hlh" kind="show" identifier="goToCreateAMatch" id="btH-d5-nSI"/>
                         <segue destination="499-42-d0g" kind="show" identifier="goToSingleMatch" id="hNd-q5-8EM"/>
+                        <segue destination="O7R-ab-Ght" kind="show" identifier="mainGoToHowToPlay" id="Pf8-Jh-hAn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="85o-wg-cRL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -182,11 +183,52 @@
                         <outlet property="number2" destination="STs-23-nH7" id="ggo-B5-rqg"/>
                         <outlet property="number3" destination="SrW-1z-Ur2" id="AtG-iv-ngD"/>
                         <segue destination="499-42-d0g" kind="show" identifier="goToGameVC" id="SUr-Qx-5b6"/>
+                        <segue destination="O7R-ab-Ght" kind="show" identifier="verificationGoToHowToPlay" id="jlr-W6-3S5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vR6-IM-7au" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2100" y="1521"/>
+            <point key="canvasLocation" x="-2100" y="1600"/>
+        </scene>
+        <!--How To Play View Controller-->
+        <scene sceneID="Zg2-LE-2Le">
+            <objects>
+                <viewController id="O7R-ab-Ght" customClass="HowToPlayViewController" customModule="AAAHSTEROIS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3J9-x2-b7F"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q84-dT-ETw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rOh-8V-AZR">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="spaceBackground" translatesAutoresizingMaskIntoConstraints="NO" id="eaI-57-tvZ">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="howToPlay" translatesAutoresizingMaskIntoConstraints="NO" id="g8h-Yc-aCV">
+                                <rect key="frame" x="642" y="242" width="637" height="596"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiG-Ru-byr">
+                                <rect key="frame" x="551" y="909" width="819" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="55"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Got It!"/>
+                                <connections>
+                                    <action selector="pressedGotIt:" destination="O7R-ab-Ght" eventType="primaryActionTriggered" id="cTZ-SZ-5BR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <segue destination="499-42-d0g" kind="show" identifier="howToPlayGoToGame" id="VZ5-TQ-Jlq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RzM-GS-8hJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-487" y="-1440"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="dEh-eV-dlg">
@@ -323,10 +365,12 @@
     </scenes>
     <resources>
         <image name="2playersActive" width="194" height="152"/>
+        <image name="howToPlay" width="637" height="596"/>
         <image name="playButton" width="188" height="189"/>
         <image name="spaceBackground" width="1919" height="1080"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hNd-q5-8EM"/>
+        <segue reference="jlr-W6-3S5"/>
+        <segue reference="VZ5-TQ-Jlq"/>
     </inferredMetricsTieBreakers>
 </document>

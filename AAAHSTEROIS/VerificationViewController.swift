@@ -95,6 +95,8 @@ class VerificationViewController: UIViewController, MPCManagerDelegate {
         goingToGVC = true
         loadGameVC()
     }
+  
+  //DEPOIS TEM QUE LINKAR COM O HOW TO PLAY
     
     func loadGameVC() {
         DispatchQueue.main.async {
